@@ -25,9 +25,10 @@ public class Bullets extends Actor
         if(isTouching(Bugs.class))
         {
             removeTouching(Bugs.class);
-            /*removeObject();
-             * 
+            /*
+             * need to remove both bugs and the bullets.
              */
+            
             
             
         }

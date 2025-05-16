@@ -16,5 +16,24 @@ public class Bugs extends Actor
     {
         
     }
+    /*
+     * this method check if there's any remain bugs exists
+     * if so then nothing happen, else it will creat another wave
+     * of bugs.
+     */
+    public void spawn()
+    {
+        if (getWorld().getObjects(Bugs.class) == null )
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.creatBugs();
+        }
+    }
     
+    public void creatBugs()
+    {
+        
+    }
+        
+    }
 }
