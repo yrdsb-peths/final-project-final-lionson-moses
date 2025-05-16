@@ -14,7 +14,7 @@ public class Bugs extends Actor
      */
     public void act()
     {
-        
+        spawn();
     }
     /*
      * this method check if there's any remain bugs exists
@@ -23,17 +23,13 @@ public class Bugs extends Actor
      */
     public void spawn()
     {
-        if (getWorld().getObjects(Bugs.class) == null )
+        if (getWorld().getObjects(Bugs.class) == null) 
         {
             MyWorld world = (MyWorld) getWorld();
             world.creatBugs();
         }
     }
     
-    public void creatBugs()
-    {
         
-    }
-        
-    }
+    
 }
