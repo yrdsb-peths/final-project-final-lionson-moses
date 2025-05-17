@@ -14,19 +14,24 @@ public class Bugs extends Actor
      */
     public void act()
     {
-        spawn();
+        hit();
     }
     /*
      * this method check if there's any remain bugs exists
      * if so then nothing happen, else it will creat another wave
      * of bugs.
      */
-    public void spawn()
+   
+    /*
+     * check if bugs is being touched by bullets, and if so, remove themselfs
+     */
+    public void hit()
     {
-        if (getWorld().getObjects(Bugs.class) == null) 
+        if(isTouching(Bullets.class))
         {
-            MyWorld world = (MyWorld) getWorld();
-            world.creatBugs();
+             
+             getWorld().removeObject(this) ;
+            
         }
     }
     

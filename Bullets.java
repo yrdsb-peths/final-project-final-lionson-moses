@@ -14,22 +14,19 @@ public class Bullets extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        
+        hit();
     }
     /*
      * this check if the bullets is touching bugs, 
-     * and if so it delete both bugs getting hit and the bullet
+     * and if so, delete it self.
      */
     public void hit()
     {
         if(isTouching(Bugs.class))
         {
-            removeTouching(Bugs.class);
-            /*
-             * need to remove both bugs and the bullets.
-             */
-            
-            
+             
+             getWorld().removeObject(this) ;
             
         }
     }
