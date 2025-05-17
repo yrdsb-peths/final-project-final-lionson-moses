@@ -14,8 +14,15 @@ public class Bullets extends Actor
      */
     public void act()
     {
-        
+        setLocation(getX() , getY() - 7);
+        MyWorld world = (MyWorld) getWorld();
+        if(getY()<= 0 )
+        {
+            world.removeObject(this);
+        }
+        /// here is how bullets would move, removed if it's out of  range 
         hit();
+        
     }
     /*
      * this check if the bullets is touching bugs, 
