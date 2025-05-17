@@ -30,26 +30,30 @@ public class Bugs extends Actor
     public void act()
     {
         
+        setLocation(getX() , getY() + 2);
+        MyWorld world = (MyWorld) getWorld();
+        if(getY() >= world.getHeight() )
+        {
+            getWorld().removeObject(this);
+            ///some problems here. unable to remove, sometimes bugged
+        }
         hit();
         
     }
     
-    /*
-     * this method check if there's any remain bugs exists
-     * if so then nothing happen, else it will creat another wave
-     * of bugs.
-     */
+    
    
     /*
      * check if bugs is being touched by bullets, and if so, remove themselfs
      */
     public void hit()
     {
+        MyWorld world = (MyWorld) getWorld();
         if(isTouching(Bullets.class))
         {
-             
+             world.scoreIncrease();
              getWorld().removeObject(this) ;
-            
+             
         }
     }
     

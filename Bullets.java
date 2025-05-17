@@ -21,7 +21,7 @@ public class Bullets extends Actor
             world.removeObject(this);
         }
         /// here is how bullets would move, removed if it's out of  range 
-        hit();
+        
         
     }
     /*
@@ -29,12 +29,17 @@ public class Bullets extends Actor
      * and if so, delete it self.
      */
     public void hit()
+    ///this method also has some bugs,if used in act(), 
+    ///the bullet will be removed, but the one in bug class won't work
     {
+       
         if(isTouching(Bugs.class))
         {
              
-             getWorld().removeObject(this) ;
-            
+             ///getWorld().removeObject(this) ;
+             
+             
         }
     }
+    
 }

@@ -4,6 +4,9 @@ public class MyWorld extends World
 {
     private int bulletCooldown = 0 ;
     private Jet jet ;
+    
+    public int score = 0 ;
+    Label scoreLabel;
     public MyWorld() 
     {
         super(250, 500, 1);
@@ -12,7 +15,8 @@ public class MyWorld extends World
         jet = new Jet();
         addObject(jet , 125 , 400 );
         
-        
+        scoreLabel = new Label(0,50);
+        addObject(scoreLabel , 30,20);
         
        
     }    
@@ -29,6 +33,12 @@ public class MyWorld extends World
         
         spawn();
     }
+    public void scoreIncrease()
+    {
+        score++ ;
+        scoreLabel.setValue(score);
+    }
+    
     ///this creats bullets, 
     ///they spawn with the same location as the jet class.
     public void creatBullets()
