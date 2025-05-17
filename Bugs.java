@@ -8,14 +8,32 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bugs extends Actor
 {
-    /**
-     * Act - do whatever the Bugs wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    /*GreenfootImage[] idle = new GreenfootImage[10];
+    
+    public  Bugs()
+    {
+        for(int i = 0; i< idle.length ; i++)
+        {
+            idle[i] = new GreenfootImage("images/imageBugs/Bug0" + i + ".png");
+        }
+        setImage(idle[0]);
+    }
+     int imageIndex = 0;
+    public void animateBugs()
+    {
+       
+            setImage(idle[imageIndex]);
+            imageIndex = (imageIndex + 1 )%  idle.length ;
+        
+    }
+    */
     public void act()
     {
+        
         hit();
+        
     }
+    
     /*
      * this method check if there's any remain bugs exists
      * if so then nothing happen, else it will creat another wave
