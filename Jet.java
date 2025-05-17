@@ -22,7 +22,7 @@ public class Jet extends Actor
          {
              move(-5);
          }
-         else if(Greenfoot.isKeyDown("right"))
+          else if(Greenfoot.isKeyDown("right"))
          {
              move(5);
          }

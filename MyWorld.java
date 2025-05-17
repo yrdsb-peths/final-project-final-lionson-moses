@@ -1,15 +1,26 @@
 import greenfoot.*;
 
-public class MyWorld extends World {
+public class MyWorld extends World 
+{
+    private int bulletCooldown = 0 ;
+    private Jet jet ;
     public MyWorld() 
     {
         super(250, 500, 1);
         
         
-        Jet jetA = new Jet();
-        addObject(jetA , 125 , 400 );
+        jet = new Jet();
+        addObject(jet , 125 , 400 );
+        
+        if (bulletCooldown > 0) 
+        {
+            bulletCooldown--;
+        }
         
         creatBullets();
+                
+        
+        
         spawn();
         
        
@@ -18,8 +29,7 @@ public class MyWorld extends World {
     ///they spawn with the same location as the jet class.
     public void creatBullets()
     {
-        Bullets bul = new Bullets();
-        if(Greenfoot.isKeyDown("space")) 
+        if (Greenfoot.isKeyDown("space") && bulletCooldown == 0)
         /*
          * it seems there's some problems with this if statement, 
          * it couldn't run properly.
@@ -30,8 +40,11 @@ public class MyWorld extends World {
          * so the bullet moves as same as jet.
          */
         {
-            
-            addObject(bul , 200 , 200);
+            Bullets bul = new Bullets();
+            int x = jet.getX() ;
+            int y = jet.getY() ;
+            addObject(bul , x, y);
+            bulletCooldown = 20 ;
         }
        
     }
