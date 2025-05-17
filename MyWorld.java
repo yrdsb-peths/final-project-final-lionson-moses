@@ -12,6 +12,12 @@ public class MyWorld extends World
         jet = new Jet();
         addObject(jet , 125 , 400 );
         
+        
+        
+       
+    }    
+    public void act()
+    {
         if (bulletCooldown > 0) 
         {
             bulletCooldown--;
@@ -22,9 +28,7 @@ public class MyWorld extends World
         
         
         spawn();
-        
-       
-    }    
+    }
     ///this creats bullets, 
     ///they spawn with the same location as the jet class.
     public void creatBullets()
