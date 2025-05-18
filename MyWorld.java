@@ -53,6 +53,7 @@ public class MyWorld extends World
     {
         Label gameOverLabel = new Label("Game Over", 30);
         addObject(gameOverLabel, 125, 250);
+        Greenfoot.stop() ;
     }
     ///this increases the score every time one bug is killed
     public void scoreIncrease()
