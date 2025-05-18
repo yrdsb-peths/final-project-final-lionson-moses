@@ -11,11 +11,11 @@ public class MyWorld extends World
     public int level = 0 ;
     public MyWorld() 
     {
-        super(250, 500, 1, false);
+        super(400, 800, 1, false);
         
         
         jet = new Jet();
-        addObject(jet , 125 , 400 );
+        addObject(jet , 200 , 700 );
         
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 30,20);
@@ -103,8 +103,8 @@ public class MyWorld extends World
     public void creatBugs()
     {
         Bugs bug = new Bugs();
-        int x = Greenfoot.getRandomNumber(250);
-        int y = 100 ;
+        int x = Greenfoot.getRandomNumber(300);
+        int y = 100 + Greenfoot.getRandomNumber(50) ;
         addObject(bug , x, y );
         
     }
