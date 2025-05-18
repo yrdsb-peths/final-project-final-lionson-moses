@@ -29,7 +29,7 @@ public class MyWorld extends World
     }    
     public void act()
     {
-        if (bulletCooldown > 0) 
+        if (bulletCooldown  > 0 ) 
         {
             bulletCooldown--;
         }
@@ -80,7 +80,7 @@ public class MyWorld extends World
             int x = jet.getX() ;
             int y = jet.getY() ;
             addObject(bul , x, y);
-            bulletCooldown = 20 ;
+            bulletCooldown = 20 - level ;
         }
        
     }
