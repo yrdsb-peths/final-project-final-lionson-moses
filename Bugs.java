@@ -53,7 +53,9 @@ public class Bugs extends Actor
         if(isTouching(Bullets.class))
         {
              world.scoreIncrease();
+             removeTouching(Bullets.class);
              getWorld().removeObject(this) ;
+             
              
         }
     }

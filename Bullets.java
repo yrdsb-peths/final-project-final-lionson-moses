@@ -21,7 +21,7 @@ public class Bullets extends Actor
             world.removeObject(this);
         }
         /// here is how bullets would move, removed if it's out of  range 
-        
+       
         
     }
     /*
@@ -36,7 +36,7 @@ public class Bullets extends Actor
         if(isTouching(Bugs.class))
         {
              
-             ///getWorld().removeObject(this) ;
+             getWorld().removeObject(this) ;
              
              
         }
