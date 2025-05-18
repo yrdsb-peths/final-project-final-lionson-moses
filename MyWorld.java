@@ -7,6 +7,8 @@ public class MyWorld extends World
     
     public int score = 0 ;
     Label scoreLabel;
+    
+    public int level = 0 ;
     public MyWorld() 
     {
         super(250, 500, 1, false);
@@ -18,7 +20,12 @@ public class MyWorld extends World
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 30,20);
         
-       
+        /*
+        Label levelLabel = new Label(0,50);
+        addObject(levelLabel ,100 , 20);
+        */
+        /// there's some bugs happening here, 
+        ///cant run the levelIncrease method
     }    
     public void act()
     {
@@ -33,7 +40,15 @@ public class MyWorld extends World
         
         spawn();
     }
-    ///this labels game over 
+    /*public void levelIncrease()
+    {
+        level ++ ;
+        levelLabel.setValue(level);
+    }
+    */
+    
+   
+    ///this is label Gameover,
     public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over", 30);
@@ -75,10 +90,11 @@ public class MyWorld extends World
     {
         
         if (getObjects(Bugs.class).isEmpty()) //(buged, need to be fixed)
-
+        
         {
+            level += 1 ;
             /// below part works fine, only the "if statement " is bugged
-            for(int i = 0 ; i < 5 ; i++)
+            for(int i = 0 ; i < 5 + level ; i++)
             {  
                creatBugs();
             }
