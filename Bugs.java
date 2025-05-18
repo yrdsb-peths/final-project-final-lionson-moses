@@ -32,9 +32,10 @@ public class Bugs extends Actor
         
         setLocation(getX() , getY() + 2);
         MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight() )
+        if(getY() >= world.getHeight() || isTouching(Jet.class) )
         {
-            getWorld().removeObject(this);
+            
+            world.gameOver();
             ///some problems here. unable to remove, sometimes bugged
         }
         hit();

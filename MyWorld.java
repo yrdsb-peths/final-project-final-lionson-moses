@@ -9,7 +9,7 @@ public class MyWorld extends World
     Label scoreLabel;
     public MyWorld() 
     {
-        super(250, 500, 1);
+        super(250, 500, 1, false);
         
         
         jet = new Jet();
@@ -33,6 +33,13 @@ public class MyWorld extends World
         
         spawn();
     }
+    ///this labels game over 
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("Game Over", 30);
+        addObject(gameOverLabel, 125, 250);
+    }
+    ///this increases the score every time one bug is killed
     public void scoreIncrease()
     {
         score++ ;
