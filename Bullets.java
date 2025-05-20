@@ -12,6 +12,10 @@ public class Bullets extends Actor
      * Act - do whatever the Bullets wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public Bullets()
+    {
+        setImage("images/bullet.jpg");
+    }
     public void act()
     {
         setLocation(getX() , getY() - 7);
