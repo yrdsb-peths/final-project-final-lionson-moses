@@ -55,7 +55,7 @@ public class Bugs extends Actor
              world.scoreIncrease();
              removeTouching(Bullets.class);
              getWorld().removeObject(this) ;
-             
+             Greenfoot.playSound("hit.mp3");
              
         }
     }

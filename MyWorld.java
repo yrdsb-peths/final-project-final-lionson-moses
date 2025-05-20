@@ -35,6 +35,8 @@ public class MyWorld extends World
         }
         
         creatBullets();
+        
+        
                 
         
         
@@ -51,6 +53,7 @@ public class MyWorld extends World
     ///this is label Gameover,
     public void gameOver()
     {
+        
         Label gameOverLabel = new Label("Game Over", 30);
         addObject(gameOverLabel, 125, 250);
         Greenfoot.stop() ;
@@ -78,6 +81,7 @@ public class MyWorld extends World
          */
         {
             Bullets bul = new Bullets();
+            Greenfoot.playSound("fire.mp3");
             int x = jet.getX() ;
             int y = jet.getY() ;
             addObject(bul , x, y);
