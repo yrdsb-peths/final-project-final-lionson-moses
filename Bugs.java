@@ -8,11 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bugs extends Actor
 {
-    /*GreenfootImage[] idle = new GreenfootImage[10];
+    GreenfootImage[] idle = new GreenfootImage[10];
     
     public  Bugs()
     {
-        for(int i = 0; i< idle.length ; i++)
+        for(int i = 1; i< idle.length ; i++)
         {
             idle[i] = new GreenfootImage("images/imageBugs/Bug0" + i + ".png");
         }
@@ -26,7 +26,6 @@ public class Bugs extends Actor
             imageIndex = (imageIndex + 1 )%  idle.length ;
         
     }
-    */
     public void act()
     {
         
@@ -39,6 +38,7 @@ public class Bugs extends Actor
             ///some problems here. unable to remove, sometimes bugged
         }
         hit();
+        animateBugs();
         
     }
     
