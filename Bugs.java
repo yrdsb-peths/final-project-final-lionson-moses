@@ -12,13 +12,13 @@ public class Bugs extends Actor
     
     public  Bugs()
     {
-        for(int i = 1; i< idle.length ; i++)
+        for(int i = 0; i< idle.length ; i++)
         {
             idle[i] = new GreenfootImage("images/imageBugs/Bug0" + i + ".png");
         }
         setImage(idle[0]);
     }
-     int imageIndex = 0;
+    int imageIndex = 0;
     public void animateBugs()
     {
        
