@@ -70,15 +70,7 @@ public class MyWorld extends World
     public void creatBullets()
     {
         if (Greenfoot.isKeyDown("space") && bulletCooldown == 0)
-        /*
-         * it seems there's some problems with this if statement, 
-         * it couldn't run properly.
-         * there's also difficulty in terms if getting the location of the jet
-         * my suggestion is set the origional location of creat bullet 
-         * as the same as the jet. 
-         * and then copy the code of the jet class "fly()". 
-         * so the bullet moves as same as jet.
-         */
+        
         {
             Bullets bul = new Bullets();
             Greenfoot.playSound("fire.mp3");
@@ -94,23 +86,18 @@ public class MyWorld extends World
     public void spawn()
     {
         
-        if (getObjects(Bugs.class).isEmpty()) //(buged, need to be fixed)
+        if (getObjects(Bug.class).isEmpty()) //(buged, need to be fixed)
         
         {
             level += 1 ;
-            /// below part works fine, only the "if statement " is bugged
             for(int i = 0 ; i < 5 + level ; i++)
             {  
-               creatBugs();
+               Bug bug = new Bug();
+            int x = Greenfoot.getRandomNumber(300);
+            int y = 100 + Greenfoot.getRandomNumber(50) ;
+            addObject(bug , x, y );
             }
         }
     }
-    public void creatBugs()
-    {
-        Bugs bug = new Bugs();
-        int x = Greenfoot.getRandomNumber(300);
-        int y = 100 + Greenfoot.getRandomNumber(50) ;
-        addObject(bug , x, y );
-        
-    }
+    
 }

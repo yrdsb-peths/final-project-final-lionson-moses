@@ -6,8 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bugs extends Actor
+public class Bug extends Actor
 {
+    /*
     GreenfootImage[] idle = new GreenfootImage[10];
     
     public  Bugs()
@@ -26,6 +27,7 @@ public class Bugs extends Actor
             imageIndex = (imageIndex + 1 )%  idle.length ;
         
     }
+    */
     public void act()
     {
         
@@ -35,10 +37,10 @@ public class Bugs extends Actor
         {
             
             world.gameOver();
-            ///some problems here. unable to remove, sometimes bugged
+            
         }
         hit();
-        animateBugs();
+        ///animateBugs();
     }
     
     

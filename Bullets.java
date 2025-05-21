@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Bullets extends Actor
 {
-    
     public Bullets()
     {
         setImage("bulletImage.jpg");
@@ -26,26 +25,5 @@ public class Bullets extends Actor
         {
             world.removeObject(this);
         }
-        /// here is how bullets would move, removed if it's out of  range 
-       
-        
     }
-    /*
-     * this check if the bullets is touching bugs, 
-     * and if so, delete it self.
-     */
-    public void hit()
-    ///this method also has some bugs,if used in act(), 
-    ///the bullet will be removed, but the one in bug class won't work
-    {
-       
-        if(isTouching(Bugs.class))
-        {
-             
-             getWorld().removeObject(this) ;
-             
-             
-        }
-    }
-    
 }
