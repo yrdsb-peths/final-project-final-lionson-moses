@@ -8,15 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bug extends Actor
 {
-    public Bug()
-    {
-        setImage("fly.png");
-    }
-    /*
     GreenfootImage[] idle = new GreenfootImage[10];
     public  Bug()
     {
-        for(int i = 1; i< idle.length ; i++)
+        for(int i = 0; i< idle.length ; i++)
         {
             idle[i] = new GreenfootImage("images/imageBugs/Bug0" + i + ".png");
         }
@@ -30,7 +25,6 @@ public class Bug extends Actor
             imageIndex = (imageIndex + 1 )%  idle.length ;
         
     }
-    */
     
     public void act()
     {
@@ -44,7 +38,7 @@ public class Bug extends Actor
             
         }
         hit();
-        ///animateBugs();
+        animateBugs();
     }
     
     
