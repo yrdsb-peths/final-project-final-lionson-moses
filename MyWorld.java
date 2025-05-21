@@ -12,7 +12,7 @@ public class MyWorld extends World
     public MyWorld() 
     {
         super(400, 800, 1, false);
-        
+        setBackground("images/space.jpg");
         
         jet = new Jet();
         addObject(jet , 200 , 700 );
@@ -35,9 +35,12 @@ public class MyWorld extends World
         }
         
         creatBullets();
+<<<<<<< Updated upstream
                 
         
         
+=======
+>>>>>>> Stashed changes
         spawn();
     }
     /*public void levelIncrease()

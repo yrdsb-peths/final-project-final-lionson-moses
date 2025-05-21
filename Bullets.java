@@ -8,6 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullets extends Actor
 {
+<<<<<<< Updated upstream
+=======
+    public Bullets()
+    {
+        setImage("bulletsmall.png");
+    }
+>>>>>>> Stashed changes
     /**
      * Act - do whatever the Bullets wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

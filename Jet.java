@@ -12,6 +12,13 @@ public class Jet extends Actor
      * Act - do whatever the Jet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+<<<<<<< Updated upstream
+=======
+    public  Jet()
+    {
+        setImage("jetremove.png");
+    }
+>>>>>>> Stashed changes
     public void act()
     {
        fly();
