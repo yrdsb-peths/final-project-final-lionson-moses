@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bug extends Actor
 {
+    public Bug()
+    {
+        setImage("fly.png");
+    }
     /*
     GreenfootImage[] idle = new GreenfootImage[10];
     public  Bug()
