@@ -29,6 +29,8 @@ public class MyWorld extends World
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 30,20);
         
+        
+        
         /*
         Label levelLabel = new Label(0,50);
         addObject(levelLabel ,100 , 20);
@@ -61,7 +63,12 @@ public class MyWorld extends World
         
         Label gameOverLabel = new Label("Game Over", 30);
         addObject(gameOverLabel, 125, 250);
-        ///Greenfoot.stop() ;
+        
+        Explosion explo = new Explosion();
+        int x = jet.getX() ;
+        int y = jet.getY() ;
+        addObject(explo , x , y );
+        Greenfoot.stop() ;
     }
     ///this increases the score every time one bug is killed
     public void scoreIncrease()
