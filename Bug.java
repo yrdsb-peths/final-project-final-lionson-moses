@@ -49,7 +49,7 @@ public class Bug extends Actor
     public void hit()
     {
         MyWorld world = (MyWorld) getWorld();
-        if(isTouching(Bullets.class))
+        if(isTouching(Bullets.class) || isTouching(Boom.class))
         {
              world.scoreIncrease();
              removeTouching(Bullets.class);

@@ -9,6 +9,8 @@ public class MyWorld extends World
     Label scoreLabel;
     
     public int level = 0 ;
+    
+    public int energy = 0;
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -82,7 +84,15 @@ public class MyWorld extends World
             addObject(bul , x, y);
             bulletCooldown = 20 - level ;
         }
-       
+        
+        if(Greenfoot.isKeyDown("down") && energy > 0)
+        {
+            Boom bom = new Boom();
+            int x = jet.getX() ;
+            int y = jet.getY() ;
+            addObject(bom , x, y);
+            energy--;
+        }
     }
     
     ///this spawns bugs
@@ -97,7 +107,7 @@ public class MyWorld extends World
             {  
             creatbug();
             }
-            
+            createGift();
         }
     }
     /// the game became super laggy if I don't creat 
@@ -108,5 +118,12 @@ public class MyWorld extends World
             int x = Greenfoot.getRandomNumber(300);
             int y = 100 + Greenfoot.getRandomNumber(50) ;
             addObject(bug , x, y );
+    }
+    public void createGift()
+    {
+        Gift gift = new Gift();
+        int x = Greenfoot.getRandomNumber(300);
+        int y = 100 + Greenfoot.getRandomNumber(50) ;
+        addObject(gift , x, y );
     }
 }
