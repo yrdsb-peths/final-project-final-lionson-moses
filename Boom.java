@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Boom extends Actor
 {
+    public Boom()
+    {
+        setImage("bulletImage.png");
+    }
     public void act()
     {
         setLocation(getX() , getY() - 3);
