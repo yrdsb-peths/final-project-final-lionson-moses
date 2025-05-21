@@ -92,12 +92,17 @@ public class MyWorld extends World
             level += 1 ;
             for(int i = 0 ; i < 5 + level ; i++)
             {  
-               Bug bug = new Bug();
-            int x = Greenfoot.getRandomNumber(300);
-            int y = 100 + Greenfoot.getRandomNumber(50) ;
-            addObject(bug , x, y );
+            creatbug();
             }
         }
     }
-    
+    /// the game became super laggy if I don't creat 
+    /// and use this method
+    public void creatbug()
+    {
+        Bug bug = new Bug();
+            int x = Greenfoot.getRandomNumber(300);
+            int y = 100 + Greenfoot.getRandomNumber(50) ;
+            addObject(bug , x, y );
+    }
 }

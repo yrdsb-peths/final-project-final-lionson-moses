@@ -10,16 +10,15 @@ public class Bug extends Actor
 {
     /*
     GreenfootImage[] idle = new GreenfootImage[10];
-    
-    public  Bugs()
+    public  Bug()
     {
-        for(int i = 0; i< idle.length ; i++)
+        for(int i = 1; i< idle.length ; i++)
         {
             idle[i] = new GreenfootImage("images/imageBugs/Bug0" + i + ".png");
         }
         setImage(idle[0]);
     }
-     int imageIndex = 0;
+    int imageIndex = 0;
     public void animateBugs()
     {
        
@@ -28,6 +27,7 @@ public class Bug extends Actor
         
     }
     */
+    
     public void act()
     {
         
