@@ -13,7 +13,7 @@ public class MyWorld extends World
     {
         super(400, 800, 1, false);
         
-        
+        setBackground("images/space.jpg");
         
         jet = new Jet();
         addObject(jet , 200 , 670 );
@@ -42,10 +42,6 @@ public class MyWorld extends World
         }
         
         creatBullets();
-        
-        
-                
-        
         
         spawn();
     }
@@ -101,6 +97,7 @@ public class MyWorld extends World
             {  
             creatbug();
             }
+            
         }
     }
     /// the game became super laggy if I don't creat 
