@@ -11,8 +11,12 @@ public class Bullets extends Actor
 {
     public Bullets()
     {
-        setImage("bulletImage.jpg");
+        GreenfootImage image = new GreenfootImage("bulletImage.jpg");
+        image.scale(20 , 40);
+        setImage(image);
     }
+    
+    
     /**
      * Act - do whatever the Bullets wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
