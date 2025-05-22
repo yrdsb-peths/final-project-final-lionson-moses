@@ -80,6 +80,7 @@ public class MyWorld extends World
         score++ ;
         scoreLabel.setValue(score);
     }
+    //set the value of energy
     public void setElec()
     {
         energys.setValue(elec);
@@ -99,7 +100,8 @@ public class MyWorld extends World
             addObject(bul , x, y);
             bulletCooldown = 20 - level ;
         }
-        
+    
+    //when there's energy, spawn a huge bullet
         if(Greenfoot.isKeyDown("down") && energy > 0)
         {
             Skill bom = new Skill();
@@ -120,7 +122,7 @@ public class MyWorld extends World
         
         {
             level += 1 ;
-            for(int i = 0 ; i < 5 + level ; i++)
+            for(int i = 0 ; i < 4 + level ; i++)
             {  
             creatbug();
             }

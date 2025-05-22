@@ -10,7 +10,7 @@ public class Gift extends Actor
 {
     public Gift()
     {
-        setImage("herz.png");
+        setImage("energy.png");
     }
     public void act()
     {
