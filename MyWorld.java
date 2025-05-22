@@ -10,7 +10,9 @@ public class MyWorld extends World
     
     public int level = 0 ;
     
-    public int energy = 0;
+    public int energy = 1;
+    public int elec = 1;
+    Label energys;
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -29,7 +31,8 @@ public class MyWorld extends World
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 30,20);
         
-        
+        energys = new Label(0, 40);
+        addObject(energys, 30, 780);
         
         /*
         Label levelLabel = new Label(0,50);
@@ -48,6 +51,7 @@ public class MyWorld extends World
         creatBullets();
         
         spawn();
+        setElec();
     }
     /*public void levelIncrease()
     {
@@ -76,6 +80,10 @@ public class MyWorld extends World
         score++ ;
         scoreLabel.setValue(score);
     }
+    public void setElec()
+    {
+        energys.setValue(elec);
+    }
     
     ///this creats bullets, 
     ///they spawn with the same location as the jet class.
@@ -94,11 +102,13 @@ public class MyWorld extends World
         
         if(Greenfoot.isKeyDown("down") && energy > 0)
         {
-            Boom bom = new Boom();
+            Skill bom = new Skill();
             int x = jet.getX() ;
             int y = jet.getY() ;
             addObject(bom , x, y);
             energy--;
+            elec--;
+            setElec();
         }
     }
     

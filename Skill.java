@@ -6,9 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Boom extends Actor
+public class Skill extends Actor
 {
-    public Boom()
+    public Skill()
     {
         setImage("bulletImage.png");
     }

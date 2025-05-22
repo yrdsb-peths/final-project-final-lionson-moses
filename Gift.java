@@ -21,6 +21,8 @@ public class Gift extends Actor
         {
             world.energy++;
             world.removeObject(this);
+            world.elec++;
+            world.setElec();
         }
     }
 }
