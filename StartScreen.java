@@ -20,13 +20,41 @@ public class StartScreen extends World
         super(600, 400, 1); 
         setBackground("images/space.jpg");
         
+        
+        Label startLabel = new Label("Bug Blaster", 100);
+        addObject(startLabel, 300, 200);
+        
+        
+        Label instruction1 = new Label("press space to start the game and SHOOT!", 20);
+        Label instruction2 = new Label("press Left and Right to MOVEAROUND!", 20);
+        Label instruction3 = new Label("Eat the LIGHTING and press Down to ACTIVATE SECRET BULLET !", 20);
+        Label instruction4 = new Label("DONT let the bug touch you or get over you!", 20);
+        addObject(instruction1 , 300 , 30);
+        addObject(instruction2 , 300 , 60);
+        addObject(instruction3 , 300 , 90);
+        addObject(instruction4 , 300 , 120);
+        
+        
         Jet demonJet = new Jet();
-        addObject(demonJet , 300 , 300);
+        addObject(demonJet , 300 , 280);
+        
+        for(int i = 0 ; i < 5 ; i++)
+        {
+            StartScreenBug demonBug = new StartScreenBug();
+            int x = Greenfoot.getRandomNumber(600);
+            addObject(demonBug , x , 100);
+        }
+        Jetfire startScreenFire = new Jetfire();
+        JetfireLeft startScreenFireLeft = new JetfireLeft();
+        addObject(startScreenFire , 317 , 420);
+        addObject(startScreenFireLeft , 283 , 420);
+        
         if ( ! musicStarted)
         {
             music.playLoop();
             musicStarted = true;
         }
+        
     }
     public void act()
     {
@@ -36,6 +64,7 @@ public class StartScreen extends World
             MyWorld startGame = new MyWorld();
             Greenfoot.setWorld(startGame);
             music.pause();
+            Greenfoot.playSound("pressToStart.mp3");
         }
     }
 }

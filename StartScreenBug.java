@@ -1,0 +1,64 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class StartScreenBug here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class StartScreenBug extends Actor
+{
+    /**
+     * Act - do whatever the StartScreenBug wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    private int turnDirectionCooldown = 0 ;
+    GreenfootImage[] idle = new GreenfootImage[10];
+    public  StartScreenBug()
+    {
+        for(int i = 0; i< idle.length ; i++)
+        {
+            idle[i] = new GreenfootImage("images/imageBugs/Bug0" + i + ".png");
+        }
+        setImage(idle[0]);
+    }
+    int imageIndex = 0;
+    public void animateStartScreenBugs()
+    {
+       
+            setImage(idle[imageIndex]);
+            imageIndex = (imageIndex + 1 )%  idle.length ;
+        
+    }
+    
+    public void act()
+    {
+        animateStartScreenBugs();
+        
+        if (turnDirectionCooldown  > 0 ) 
+        {
+            turnDirectionCooldown--;
+        }
+        
+        moveAround();
+        
+    }
+    public void moveAround()
+    {
+        
+        move(4);
+        if(Greenfoot.getRandomNumber(100)<10)
+        {
+            turn(Greenfoot.getRandomNumber(90) - 45);
+        }
+        if(getX() <= 5 || getY() >= getWorld().getWidth() - 5)
+        {
+            turn(180);
+        }
+        if(getX() <= 5 || getY() >= getWorld().getHeight() - 5)
+        {
+            turn(180);
+        }
+        
+    }
+}
