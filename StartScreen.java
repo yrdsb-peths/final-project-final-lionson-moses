@@ -8,11 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartScreen extends World
 {
-
     /**
      * Constructor for objects of class StartScreen.
      * 
      */
+    GreenfootSound music = new GreenfootSound("startingpageloopmusic.mp3");
+    private boolean musicStarted;
     public StartScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -21,9 +22,11 @@ public class StartScreen extends World
         
         Jet demonJet = new Jet();
         addObject(demonJet , 300 , 300);
-        
-        Greenfoot.playSound("startingpageloopmusic.mp3");
-        
+        if ( ! musicStarted)
+        {
+            music.playLoop();
+            musicStarted = true;
+        }
     }
     public void act()
     {
@@ -32,7 +35,7 @@ public class StartScreen extends World
         {
             MyWorld startGame = new MyWorld();
             Greenfoot.setWorld(startGame);
-            
+            music.pause();
         }
     }
 }
