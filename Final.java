@@ -16,10 +16,25 @@ public class Final extends World
     public Final()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(400, 800, 1); 
         setBackground("images/space.jpg");
         
-        Label gameOverLabel = new Label("Game Over", 100);
-        addObject(gameOverLabel, 300, 200);
+        Label gameOverLabel = new Label("Game Over", 80);
+        addObject(gameOverLabel, 200, 700);
+        
+        
+        Jet gameOverJet = new Jet();
+        gameOverJet.resizeJet(100 , 200);
+        addObject(gameOverJet , 200 , 400);
+        
+        for(int i = 0 ; i < 5 ; i++)
+        {
+            Explosion explo = new Explosion();
+            int x = 150 + Greenfoot.getRandomNumber(100);
+            int y = 250 + Greenfoot.getRandomNumber(200);
+            addObject(explo , x , y);
+        }
+        
+        
     }
 }
