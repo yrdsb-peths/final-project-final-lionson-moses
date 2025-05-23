@@ -12,6 +12,7 @@ public class MyWorld extends World
     public int level = 0 ;
     
     public int energy = 1;
+    public int energyStore = 0;
     public int elec = 1;
     Label energys;
     public MyWorld() 
@@ -52,7 +53,6 @@ public class MyWorld extends World
         {
             energyStore--;
         }
-        
         creatBullets();
         
         spawn();
@@ -107,7 +107,7 @@ public class MyWorld extends World
         }
     
     //when there's energy, spawn a huge bullet
-        if(Greenfoot.isKeyDown("down") && energy > 0)
+        if(Greenfoot.isKeyDown("down") && energy > 0 && energyStore == 0)
         {
             Skill bom = new Skill();
             int x = jet.getX() ;
