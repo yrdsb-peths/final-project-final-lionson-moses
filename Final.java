@@ -19,7 +19,7 @@ public class Final extends World
         super(600, 400, 1); 
         setBackground("images/space.jpg");
         
-        Label gameOverLabel = new Label("Game Over", 90);
+        Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
     }
 }
