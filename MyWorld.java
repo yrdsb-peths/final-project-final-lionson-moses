@@ -11,6 +11,7 @@ public class MyWorld extends World
     
     public int level = 0 ;
     
+    
     public int energy = 1;
     public int elec = 1;
     Label energys;
@@ -108,12 +109,21 @@ public class MyWorld extends World
         if (Greenfoot.isKeyDown("space") && bulletCooldown == 0)
         
         {
+            
             Bullets bul = new Bullets();
             Greenfoot.playSound("fire.mp3");
             int x = jet.getX() ;
             int y = jet.getY() ;
-            addObject(bul , x, y);
-            bulletCooldown = 27 - level ;
+            
+            addObject(bul , x , y );
+            if(level < 11)
+            {
+                bulletCooldown = 27 - 2*level ;
+            }
+            else
+            {
+                bulletCooldown = 5 ;
+            }
         }
     
         //when there's energy, spawn a huge bullet
