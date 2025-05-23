@@ -3,6 +3,7 @@ import greenfoot.*;
 public class MyWorld extends World 
 {
     private int bulletCooldown = 0 ;
+    private int energyStore = 0;
     private Jet jet ;
     
     public int score = 0 ;
@@ -11,10 +12,8 @@ public class MyWorld extends World
     public int level = 0 ;
     
     public int energy = 1;
-    public int energyStore = 0;
     public int elec = 1;
     Label energys;
-    
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -45,7 +44,7 @@ public class MyWorld extends World
     }    
     public void act()
     {
-        if (bulletCooldown  > 0) 
+        if (bulletCooldown  > 0 ) 
         {
             bulletCooldown--;
         }
@@ -53,6 +52,7 @@ public class MyWorld extends World
         {
             energyStore--;
         }
+        
         creatBullets();
         
         spawn();
@@ -107,9 +107,6 @@ public class MyWorld extends World
         }
     
     //when there's energy, spawn a huge bullet
-        if(Greenfoot.isKeyDown("down") && energy > 0 && energyStore == 0)
-    
-    //when there's energy, spawn a huge bullet
         if(Greenfoot.isKeyDown("down") && energy > 0)
         {
             Skill bom = new Skill();
@@ -121,7 +118,6 @@ public class MyWorld extends World
             setElec();
             energyStore = 60;
         }
-        
     }
     
     ///this spawns bugs
@@ -129,9 +125,9 @@ public class MyWorld extends World
     {
         
         if (getObjects(Bug.class).isEmpty()) //(buged, need to be fixed)
+        
         {
             level += 1 ;
-            /// below part works fine, only the "if statement " is bugged
             for(int i = 0 ; i < 4 + level ; i++)
             {  
             creatbug();
@@ -156,4 +152,3 @@ public class MyWorld extends World
         addObject(gift , x, y );
     }
 }
-
