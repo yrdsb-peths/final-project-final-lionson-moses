@@ -57,6 +57,7 @@ public class MyWorld extends World
         {
             energyStore--;
         }
+        
         creatBullets();
         
         spawn();
@@ -110,11 +111,11 @@ public class MyWorld extends World
             int x = jet.getX() ;
             int y = jet.getY() ;
             addObject(bul , x, y);
-            bulletCooldown = 30 - level ;
+            bulletCooldown = 25 - level ;
         }
     
-    //when there's energy, spawn a huge bullet
-        if(Greenfoot.isKeyDown("down") && energy > 0 && energyStore == 0)
+        //when there's energy, spawn a huge bullet
+        if(Greenfoot.isKeyDown("down") && energy > 0)
         {
             Skill bom = new Skill();
             int x = jet.getX() ;
