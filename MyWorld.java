@@ -3,6 +3,7 @@ import greenfoot.*;
 public class MyWorld extends World 
 {
     private int bulletCooldown = 0 ;
+    private int energyStore = 0;
     private Jet jet ;
     
     public int score = 0 ;
@@ -51,6 +52,10 @@ public class MyWorld extends World
         if (bulletCooldown  > 0 ) 
         {
             bulletCooldown--;
+        }
+        if(energyStore > 0)
+        {
+            energyStore--;
         }
         
         creatBullets();
@@ -106,7 +111,7 @@ public class MyWorld extends World
             int x = jet.getX() ;
             int y = jet.getY() ;
             addObject(bul , x, y);
-            bulletCooldown = 20 - level ;
+            bulletCooldown = 30 - level ;
         }
     
     //when there's energy, spawn a huge bullet
@@ -119,6 +124,7 @@ public class MyWorld extends World
             energy--;
             elec--;
             setElec();
+            energyStore = 60;
         }
     }
     
