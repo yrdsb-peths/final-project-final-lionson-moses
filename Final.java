@@ -17,5 +17,9 @@ public class Final extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        setBackground("images/space.jpg");
+        
+        Label gameOverLabel = new Label("Game Over", 90);
+        addObject(gameOverLabel, 300, 200);
     }
 }
