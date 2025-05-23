@@ -37,17 +37,7 @@ public class Explosion extends Actor
     public void act()
     {
         animateExplosion();
-        followingJet();
+        
     }
-    public void followingJet()
-    {
-         if(Greenfoot.isKeyDown("left"))
-         {
-             move(-5);
-         }
-          else if(Greenfoot.isKeyDown("right"))
-         {
-             move(5);
-         }
-    }
+    
 }
