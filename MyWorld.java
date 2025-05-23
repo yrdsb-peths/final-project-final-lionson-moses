@@ -13,6 +13,11 @@ public class MyWorld extends World
     public int energy = 1;
     public int elec = 1;
     Label energys;
+    
+    private int explosionCooldown = 0 ;
+    
+    
+    public boolean isGameover = false ;
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -52,6 +57,12 @@ public class MyWorld extends World
         
         spawn();
         setElec();
+        
+        if(isGameover)
+        {
+            Final gameOverAnimation = new Final();
+            Greenfoot.setWorld(gameOverAnimation);
+        }
     }
     /*public void levelIncrease()
     {
@@ -64,15 +75,12 @@ public class MyWorld extends World
     ///this is label Gameover,
     public void gameOver()
     {
-        
-        Label gameOverLabel = new Label("Game Over", 30);
-        addObject(gameOverLabel, 125, 250);
-        
-        Explosion explo = new Explosion();
-        int x = jet.getX() ;
-        int y = jet.getY() ;
-        addObject(explo , x , y );
+        /*
+        Label gameOverLabel = new Label("Game Over", 90);
+        addObject(gameOverLabel, 200, 400);
         Greenfoot.stop() ;
+        */
+        isGameover = true ;
     }
     ///this increases the score every time one bug is killed
     public void scoreIncrease()
