@@ -40,6 +40,8 @@ public class MyWorld extends World
         energys = new Label(0, 40);
         addObject(energys, 30, 780);
         
+        
+        
         /*
         Label levelLabel = new Label(0,50);
         addObject(levelLabel ,100 , 20);
