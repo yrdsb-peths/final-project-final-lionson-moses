@@ -9,6 +9,14 @@ public class MyWorld extends World
     Label scoreLabel;
     
     public int level = 0 ;
+<<<<<<< Updated upstream
+=======
+    
+    public int energy = 10;
+    public int energyStore = 0;
+    public int elec = 10;
+    Label energys;
+>>>>>>> Stashed changes
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -29,11 +37,14 @@ public class MyWorld extends World
     }    
     public void act()
     {
-        if (bulletCooldown  > 0 ) 
+        if (bulletCooldown  > 0) 
         {
             bulletCooldown--;
         }
-        
+        if(energyStore > 0)
+        {
+            energyStore--;
+        }
         creatBullets();
 <<<<<<< Updated upstream
                 
@@ -84,9 +95,25 @@ public class MyWorld extends World
             int x = jet.getX() ;
             int y = jet.getY() ;
             addObject(bul , x, y);
-            bulletCooldown = 20 - level ;
+            bulletCooldown = 30 - level ;
         }
+<<<<<<< Updated upstream
        
+=======
+    
+    //when there's energy, spawn a huge bullet
+        if(Greenfoot.isKeyDown("down") && energy > 0 && energyStore == 0)
+        {
+            Skill bom = new Skill();
+            int x = jet.getX() ;
+            int y = jet.getY() ;
+            addObject(bom , x, y);
+            energy--;
+            elec--;
+            setElec();
+            energyStore = 60;
+        }
+>>>>>>> Stashed changes
     }
     
     ///this spawns bugs
@@ -97,8 +124,12 @@ public class MyWorld extends World
         
         {
             level += 1 ;
+<<<<<<< Updated upstream
             /// below part works fine, only the "if statement " is bugged
             for(int i = 0 ; i < 5 + level ; i++)
+=======
+            for(int i = 0 ; i < 1 + level ; i++)
+>>>>>>> Stashed changes
             {  
                creatBugs();
             }
