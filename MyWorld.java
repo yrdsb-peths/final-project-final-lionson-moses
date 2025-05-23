@@ -12,7 +12,6 @@ public class MyWorld extends World
     public int level = 0 ;
     
     public int energy = 1;
-    public int energyStore = 0;
     public int elec = 1;
     Label energys;
     
