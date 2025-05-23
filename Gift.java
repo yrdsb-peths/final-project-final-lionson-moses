@@ -19,6 +19,7 @@ public class Gift extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Jet.class))
         {
+            Greenfoot.playSound("gaingift.mp3");
             world.energy++;
             world.removeObject(this);
             world.elec++;
