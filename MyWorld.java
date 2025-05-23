@@ -29,10 +29,10 @@ public class MyWorld extends World
         addObject(jet , 200 , 670 );
         
         Jetfire fire = new Jetfire();
-        addObject(fire , 223 , 790);
+        addObject(fire , 220 , 790);
         
-        Jetfire fire2 = new Jetfire();
-        addObject(fire2 , 186 , 790);
+        JetfireLeft fire2 = new JetfireLeft();
+        addObject(fire2 , 182 , 790);
         
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 30,20);
