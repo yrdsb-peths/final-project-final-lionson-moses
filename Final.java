@@ -34,7 +34,7 @@ public class Final extends World
             int y = 250 + Greenfoot.getRandomNumber(200);
             addObject(explo , x , y);
         }
-        
+        Greenfoot.playSound("explosion.mp3");
         
     }
 }
