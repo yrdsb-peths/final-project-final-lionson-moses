@@ -6,19 +6,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bugs extends Actor
+public class Bug extends Actor
 {
     GreenfootImage[] idle = new GreenfootImage[10];
-    
-    public  Bugs()
+    public  Bug()
     {
-        for(int i = 1; i< idle.length ; i++)
+        for(int i = 0; i< idle.length ; i++)
         {
             idle[i] = new GreenfootImage("images/imageBugs/Bug0" + i + ".png");
         }
         setImage(idle[0]);
     }
-     int imageIndex = 0;
+    int imageIndex = 0;
     public void animateBugs()
     {
        
@@ -26,6 +25,7 @@ public class Bugs extends Actor
             imageIndex = (imageIndex + 1 )%  idle.length ;
         
     }
+    
     public void act()
     {
         
@@ -35,11 +35,10 @@ public class Bugs extends Actor
         {
             
             world.gameOver();
-            ///some problems here. unable to remove, sometimes bugged
+            
         }
         hit();
         animateBugs();
-        
     }
     
     
@@ -50,12 +49,12 @@ public class Bugs extends Actor
     public void hit()
     {
         MyWorld world = (MyWorld) getWorld();
-        if(isTouching(Bullets.class))
+        if(isTouching(Bullets.class) || isTouching(Skill.class))
         {
              world.scoreIncrease();
              removeTouching(Bullets.class);
              getWorld().removeObject(this) ;
-             
+             Greenfoot.playSound("hit.mp3");
              
         }
     }

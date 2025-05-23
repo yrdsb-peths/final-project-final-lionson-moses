@@ -9,6 +9,7 @@ public class MyWorld extends World
     Label scoreLabel;
     
     public int level = 0 ;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
     
@@ -17,16 +18,32 @@ public class MyWorld extends World
     public int elec = 10;
     Label energys;
 >>>>>>> Stashed changes
+=======
+    
+    public int energy = 1;
+    public int elec = 1;
+    Label energys;
+>>>>>>> main
     public MyWorld() 
     {
         super(400, 800, 1, false);
+        
         setBackground("images/space.jpg");
         
         jet = new Jet();
-        addObject(jet , 200 , 700 );
+        addObject(jet , 200 , 670 );
+        
+        Jetfire fire = new Jetfire();
+        addObject(fire , 218 , 790);
+        
+        Jetfire fire2 = new Jetfire();
+        addObject(fire2 , 182 , 790);
         
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 30,20);
+        
+        energys = new Label(0, 40);
+        addObject(energys, 30, 780);
         
         /*
         Label levelLabel = new Label(0,50);
@@ -46,13 +63,9 @@ public class MyWorld extends World
             energyStore--;
         }
         creatBullets();
-<<<<<<< Updated upstream
-                
         
-        
-=======
->>>>>>> Stashed changes
         spawn();
+        setElec();
     }
     /*public void levelIncrease()
     {
@@ -65,8 +78,14 @@ public class MyWorld extends World
     ///this is label Gameover,
     public void gameOver()
     {
+        
         Label gameOverLabel = new Label("Game Over", 30);
         addObject(gameOverLabel, 125, 250);
+        
+        Explosion explo = new Explosion();
+        int x = jet.getX() ;
+        int y = jet.getY() ;
+        addObject(explo , x , y );
         Greenfoot.stop() ;
     }
     ///this increases the score every time one bug is killed
@@ -75,34 +94,38 @@ public class MyWorld extends World
         score++ ;
         scoreLabel.setValue(score);
     }
+    //set the value of energy
+    public void setElec()
+    {
+        energys.setValue(elec);
+    }
     
     ///this creats bullets, 
     ///they spawn with the same location as the jet class.
     public void creatBullets()
     {
         if (Greenfoot.isKeyDown("space") && bulletCooldown == 0)
-        /*
-         * it seems there's some problems with this if statement, 
-         * it couldn't run properly.
-         * there's also difficulty in terms if getting the location of the jet
-         * my suggestion is set the origional location of creat bullet 
-         * as the same as the jet. 
-         * and then copy the code of the jet class "fly()". 
-         * so the bullet moves as same as jet.
-         */
+        
         {
             Bullets bul = new Bullets();
+            Greenfoot.playSound("fire.mp3");
             int x = jet.getX() ;
             int y = jet.getY() ;
             addObject(bul , x, y);
             bulletCooldown = 30 - level ;
         }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
        
 =======
     
     //when there's energy, spawn a huge bullet
         if(Greenfoot.isKeyDown("down") && energy > 0 && energyStore == 0)
+=======
+    
+    //when there's energy, spawn a huge bullet
+        if(Greenfoot.isKeyDown("down") && energy > 0)
+>>>>>>> main
         {
             Skill bom = new Skill();
             int x = jet.getX() ;
@@ -111,36 +134,53 @@ public class MyWorld extends World
             energy--;
             elec--;
             setElec();
+<<<<<<< HEAD
             energyStore = 60;
         }
 >>>>>>> Stashed changes
+=======
+        }
+>>>>>>> main
     }
     
     ///this spawns bugs
     public void spawn()
     {
         
-        if (getObjects(Bugs.class).isEmpty()) //(buged, need to be fixed)
+        if (getObjects(Bug.class).isEmpty()) //(buged, need to be fixed)
         
         {
             level += 1 ;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             /// below part works fine, only the "if statement " is bugged
             for(int i = 0 ; i < 5 + level ; i++)
 =======
             for(int i = 0 ; i < 1 + level ; i++)
 >>>>>>> Stashed changes
+=======
+            for(int i = 0 ; i < 4 + level ; i++)
+>>>>>>> main
             {  
-               creatBugs();
+            creatbug();
             }
+            createGift();
         }
     }
-    public void creatBugs()
+    /// the game became super laggy if I don't creat 
+    /// and use this method
+    public void creatbug()
     {
-        Bugs bug = new Bugs();
+        Bug bug = new Bug();
+            int x = Greenfoot.getRandomNumber(300);
+            int y = 100 + Greenfoot.getRandomNumber(50) ;
+            addObject(bug , x, y );
+    }
+    public void createGift()
+    {
+        Gift gift = new Gift();
         int x = Greenfoot.getRandomNumber(300);
         int y = 100 + Greenfoot.getRandomNumber(50) ;
-        addObject(bug , x, y );
-        
+        addObject(gift , x, y );
     }
 }
