@@ -29,9 +29,9 @@ public class MyWorld extends World
         addObject(jet , 200 , 670 );
         
         Jetfire fire = new Jetfire();
-        addObject(fire , 218 , 790);
+        addObject(fire , 220 , 790);
         
-        Jetfire fire2 = new Jetfire();
+        JetfireLeft fire2 = new JetfireLeft();
         addObject(fire2 , 182 , 790);
         
         scoreLabel = new Label(0,50);
@@ -120,6 +120,7 @@ public class MyWorld extends World
         if(Greenfoot.isKeyDown("down") && energy > 0 && energyStore == 0)
         {
             Skill bom = new Skill();
+            Greenfoot.playSound("lazer.mp3");
             int x = jet.getX() ;
             int y = jet.getY() ;
             addObject(bom , x, y);
