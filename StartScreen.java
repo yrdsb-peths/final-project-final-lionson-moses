@@ -46,10 +46,10 @@ public class StartScreen extends World
             int x = Greenfoot.getRandomNumber(600);
             addObject(demonBug , x , 100);
         }
-        Jetfire startScreenFire = new Jetfire();
-        JetfireLeft startScreenFireLeft = new JetfireLeft();
+        Jetfire startScreenFire = new Jetfire(false);
+        Jetfire startScreenFireleft = new Jetfire(true);
         addObject(startScreenFire , 317 , 420);
-        addObject(startScreenFireLeft , 283 , 420);
+        addObject(startScreenFireleft , 283 , 420);
         
         if ( ! musicStarted)
         {

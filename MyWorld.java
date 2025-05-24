@@ -29,16 +29,18 @@ public class MyWorld extends World
         jet = new Jet();
         addObject(jet , 200 , 670 );
         
-        Jetfire fire = new Jetfire();
+        Jetfire fire = new Jetfire(false);
         addObject(fire , 220 , 790);
         
-        JetfireLeft fire2 = new JetfireLeft();
+        Jetfire fire2 = new Jetfire(true);
         addObject(fire2 , 182 , 790);
         
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 30,20);
         
+        Icon energyIcon = new Icon();
         energys = new Label(0, 40);
+        addObject(energyIcon, 60, 780);
         addObject(energys, 30, 780);
         
         
@@ -68,7 +70,7 @@ public class MyWorld extends World
         
         if(isGameover)
         {
-            Final gameOverAnimation = new Final();
+            Final gameOverAnimation = new Final(score);
             Greenfoot.setWorld(gameOverAnimation);
         }
     }
@@ -154,6 +156,10 @@ public class MyWorld extends World
                 creatbug();
             }
             createGift();
+            if(level >= 6)
+            {
+                createMeteorite();
+            }
         }
     }
     /// the game became super laggy if I don't creat 
@@ -165,11 +171,20 @@ public class MyWorld extends World
             int y = 100 + Greenfoot.getRandomNumber(50) ;
             addObject(bug , x, y );
     }
+    //create gift for jet
     public void createGift()
     {
         Gift gift = new Gift();
         int x = Greenfoot.getRandomNumber(300);
         int y = 100 + Greenfoot.getRandomNumber(50) ;
         addObject(gift , x, y );
+    }
+    //create Meteorite
+    public void createMeteorite()
+    {
+        Meteorite mete = new Meteorite();
+        int x = Greenfoot.getRandomNumber(300);
+        addObject(mete, x, -20);
+        Greenfoot.playSound("boom.mp3");
     }
 }

@@ -13,7 +13,7 @@ public class Final extends World
      * Constructor for objects of class Final.
      * 
      */
-    public Final()
+    public Final(int score)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(400, 800, 1); 
@@ -27,6 +27,8 @@ public class Final extends World
         gameOverJet.resizeJet(100 , 200);
         addObject(gameOverJet , 200 , 400);
         
+        Label mark = new Label("You defeat:" + score + "bugs!", 40);
+        addObject(mark, 200, 770);
         for(int i = 0 ; i < 5 ; i++)
         {
             Explosion explo = new Explosion();
