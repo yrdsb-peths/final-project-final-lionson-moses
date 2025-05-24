@@ -30,7 +30,7 @@ public class Meteorite extends Actor
     {
         
         fly();
-        ///isGameOver();
+        isGameOver();
         animateMeteorite();
     }
     public void fly()
@@ -40,9 +40,9 @@ public class Meteorite extends Actor
         {
             setLocation(getX() , getY() + 4);
             meteoriteHealth -- ;
-            if(meteoriteHealth == 0)
+            removeTouching(Bullets.class);
+            if(meteoriteHealth <= 0)
             {
-                removeTouching(Bullets.class);
                 getWorld().removeObject(this) ;
             }
             /*
