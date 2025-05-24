@@ -1,17 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartScreenBug here.
+ * random bugs for fun
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson 
+ * @v1.0
  */
 public class StartScreenBug extends Actor
 {
-    /**
-     * Act - do whatever the StartScreenBug wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private int turnDirectionCooldown = 0 ;
     GreenfootImage[] idle = new GreenfootImage[10];
     public  StartScreenBug()
@@ -23,6 +19,7 @@ public class StartScreenBug extends Actor
         setImage(idle[0]);
     }
     int imageIndex = 0;
+    //animation
     public void animateStartScreenBugs()
     {
        
@@ -30,7 +27,7 @@ public class StartScreenBug extends Actor
             imageIndex = (imageIndex + 1 )%  idle.length ;
         
     }
-    
+    //fly in random place
     public void act()
     {
         animateStartScreenBugs();

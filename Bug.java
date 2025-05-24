@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Bugs here.
+ * The basic eneies
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson 
+ * @v1.0
  */
 public class Bug extends Actor
 {
@@ -18,6 +18,7 @@ public class Bug extends Actor
         setImage(idle[0]);
     }
     int imageIndex = 0;
+    //animation of bugs
     public void animateBugs()
     {
        
@@ -25,7 +26,7 @@ public class Bug extends Actor
             imageIndex = (imageIndex + 1 )%  idle.length ;
         
     }
-    
+    //if it leave the world or touch jet, kill the game
     public void act()
     {
         

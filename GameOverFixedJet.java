@@ -1,25 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameOverFixedJet here.
+ * Fixed jet for final stage
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson
+ * @v1.0
  */
 public class GameOverFixedJet extends Actor
 {
-    /**
-     * Act - do whatever the GameOverFixedJet wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public  GameOverFixedJet()
     {
         setImage("jetremove.png");
     }
     public void act()
     {
-        // Add your action code here.
+        //nothing to act
     }
+    //stay at same postion
     public void resizeJet(int x , int y)
     {
         GreenfootImage image = new GreenfootImage("jetremove.png") ;

@@ -1,17 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Jet here.
+ * our jet, the player's actor, beating bugs
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson
+ * @v1.0
  */
 public class Jet extends Actor
 {
-    /**
-     * Act - do whatever the Jet wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public  Jet()
     {
         setImage("jetremove.png");

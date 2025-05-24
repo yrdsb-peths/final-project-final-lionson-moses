@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class OneTimeExplosion here.
+ * For metorite explosion
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson 
+ * @v1.0
  */
 public class OneTimeExplosion extends Actor
 {

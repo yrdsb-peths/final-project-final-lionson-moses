@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartScreen here.
+ * our start world, for instruction
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson
+ * @v1.0
  */
 public class StartScreen extends World
 {
@@ -19,9 +19,6 @@ public class StartScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         setBackground("images/space.jpg");
-        
-        
-        
         
         Label startLabel = new Label("Bug Blaster", 100);
         addObject(startLabel, 300, 220);
@@ -62,6 +59,7 @@ public class StartScreen extends World
         }
         
     }
+    //press space to start the game
     public void act()
     {
 

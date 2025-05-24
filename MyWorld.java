@@ -2,6 +2,7 @@ import greenfoot.*;
 
 public class MyWorld extends World 
 {
+    //speed     
     private int bulletCooldown = 0 ;
     private int energyStore = 0;
     private Jet jet ;

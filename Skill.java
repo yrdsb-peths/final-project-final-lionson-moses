@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Boom here.
+ * Skill of Jet, spend energy for a huge bullet
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Lionson and Moses
+ * @v2.0
  */
 public class Skill extends Actor
 {
@@ -12,6 +12,7 @@ public class Skill extends Actor
     {
         setImage("bulletImage.png");
     }
+    //moving
     public void act()
     {
         setLocation(getX() , getY() - 3);

@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Can't be broke, destoryed power for jet
+ * hard to broke, destoryed power for jet
  * 
  * @Lionson and Moses 
  * v1.0
@@ -35,6 +35,7 @@ public class Meteorite extends Actor
     public void fly()
     {
         MyWorld world = (MyWorld) getWorld();
+        //when touching bullet, decrease the speed of meteorite
         if(isTouching(Bullets.class))
         {
             setLocation(getX() , getY() -3);
@@ -48,11 +49,13 @@ public class Meteorite extends Actor
         {
             setLocation(getX() , getY() + 4);
         }
+        //kill the game
         if(isTouching(Jet.class))
             {   
                 world.gameOver();
             }
     }
+    //when it touching skill or shoot 20times by bullet, will explosion
     public void hit()
     {
         MyWorld world = (MyWorld) getWorld();

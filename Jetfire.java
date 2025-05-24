@@ -1,18 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Jetfire here.
+ * make jet more realistic
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson
+ * @v1.0
  */
 public class Jetfire extends Actor
 {
-    /**
-     * Act - do whatever the Jetfire wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     GreenfootImage[] idle = new GreenfootImage[6];
+    //if set true, will mirror the image
     public  Jetfire(boolean left)
     {
         for(int i = 0; i< idle.length ; i++)

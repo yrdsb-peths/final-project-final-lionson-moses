@@ -1,17 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Explosion here.
+ * The animate of Meteorite and Jet
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson 
+ * @v1.0
  */
 public class Explosion extends Actor
 {
-    /**
-     * Act - do whatever the Explosion wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    //all for animate
     GreenfootImage[] idle = new GreenfootImage[9];
     public  Explosion()
     {
@@ -31,9 +28,6 @@ public class Explosion extends Actor
             imageIndex = (imageIndex + 1 )%  idle.length ;
         
     }
-    
-    
-    
     public void act()
     {
         animateExplosion();

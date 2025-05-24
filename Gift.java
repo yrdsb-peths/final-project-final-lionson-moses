@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Gift here.
+ * Energy gift for players
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Lionson and Moses
+ * @v1.0
  */
 public class Gift extends Actor
 {
@@ -12,9 +12,9 @@ public class Gift extends Actor
     {
         setImage("energy.png");
     }
+    //spawn with bugs, when touch it add energy for player
     public void act()
     {
-        
         setLocation(getX() , getY() + 1);
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Jet.class))
