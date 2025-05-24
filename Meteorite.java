@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Meteorite extends Actor
 {
+    public int meteoriteHealth = 30 ;
     GreenfootImage[] idle = new GreenfootImage[4];
     public Meteorite()
     {
@@ -27,14 +28,39 @@ public class Meteorite extends Actor
     }
     public void act()
     {
-        setLocation(getX() , getY() + 6);
+        
+        fly();
+        
+        animateMeteorite();
+    }
+    public void fly()
+    {
         MyWorld world = (MyWorld) getWorld();
-        if(isTouching(Jet.class))
+        if(isTouching(Bullets.class))
+        {
+            setLocation(getX() , getY() + 4);
+            meteoriteHealth -- ;
+            if(meteoriteHealth == 0)
+            {
+                getWorld().removeObject(this);
+            }
+            if(isTouching(Jet.class))
         {
             
             world.gameOver();
             
         }
-        animateMeteorite();
+        }
+        else
+        {
+            setLocation(getX() , getY() + 6);
+            if(isTouching(Jet.class))
+        {
+            
+            world.gameOver();
+            
+        }
+        }
     }
+    
 }
