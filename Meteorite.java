@@ -54,7 +54,7 @@ public class Meteorite extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Skill.class) )
         {
-            Explosion explo = new Explosion();
+            OneTimeExplosion explo = new OneTimeExplosion();
             getWorld().addObject(explo , getX() , getY());  
             removeTouching(Skill.class);
             getWorld().removeObject(this) ;
