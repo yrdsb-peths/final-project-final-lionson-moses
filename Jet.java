@@ -41,10 +41,5 @@ public class Jet extends Actor
              }
          }
     }
-    public void resizeJet(int x , int y)
-    {
-        GreenfootImage image = new GreenfootImage("jetremove.png") ;
-        image.scale(image.getWidth() +x , image.getHeight() +  y);
-        setImage(image);
-    }
+    
 }

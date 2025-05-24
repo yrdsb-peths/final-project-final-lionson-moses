@@ -30,7 +30,7 @@ public class Meteorite extends Actor
     {
         
         fly();
-        
+        ///isGameOver();
         animateMeteorite();
     }
     public void fly()
@@ -42,25 +42,39 @@ public class Meteorite extends Actor
             meteoriteHealth -- ;
             if(meteoriteHealth == 0)
             {
-                getWorld().removeObject(this);
+                removeTouching(Bullets.class);
+                getWorld().removeObject(this) ;
             }
-            if(isTouching(Jet.class))
-        {
-            
-            world.gameOver();
-            
-        }
+            /*
+                if(isTouching(Jet.class))
+            {
+                
+                world.gameOver();
+                
+            }
+            */
         }
         else
         {
             setLocation(getX() , getY() + 6);
+            /*
             if(isTouching(Jet.class))
-        {
+            {   
             
-            world.gameOver();
+                world.gameOver();
             
-        }
+            }
+            */
         }
     }
-    
+    public void isGameOver()
+    {
+        MyWorld world = (MyWorld) getWorld();
+        if(isTouching(Jet.class))
+            {   
+            
+                world.gameOver();
+                
+            }
+    }
 }

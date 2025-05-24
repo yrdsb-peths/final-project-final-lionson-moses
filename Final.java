@@ -23,7 +23,7 @@ public class Final extends World
         addObject(gameOverLabel, 200, 700);
         
         
-        Jet gameOverJet = new Jet();
+        GameOverFixedJet gameOverJet = new GameOverFixedJet();
         gameOverJet.resizeJet(100 , 200);
         addObject(gameOverJet , 200 , 400);
         
