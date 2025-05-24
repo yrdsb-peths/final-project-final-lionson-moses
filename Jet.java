@@ -25,10 +25,20 @@ public class Jet extends Actor
          if(Greenfoot.isKeyDown("left"))
          {
              move(-5);
+             //if player always shoot, the difficulty will decrease
+             if(Greenfoot.isKeyDown("space"))
+             {
+                 move(3);
+             }
          }
           else if(Greenfoot.isKeyDown("right"))
          {
              move(5);
+             //so it's for more balanced
+             if(Greenfoot.isKeyDown("space"))
+             {
+                 move(-3);
+             }
          }
     }
 }
