@@ -185,5 +185,6 @@ public class MyWorld extends World
         Meteorite mete = new Meteorite();
         int x = Greenfoot.getRandomNumber(300);
         addObject(mete, x, -20);
+        Greenfoot.playSound("boom.mp3");
     }
 }
