@@ -45,26 +45,12 @@ public class Meteorite extends Actor
             {
                 getWorld().removeObject(this) ;
             }
-            /*
-                if(isTouching(Jet.class))
-            {
-                
-                world.gameOver();
-                
-            }
-            */
+            
         }
         else
         {
             setLocation(getX() , getY() + 6);
-            /*
-            if(isTouching(Jet.class))
-            {   
-            
-                world.gameOver();
-            
-            }
-            */
+           
         }
     }
     public void isGameOver()
