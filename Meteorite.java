@@ -54,10 +54,11 @@ public class Meteorite extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Skill.class) )
         {
-             world.scoreIncrease();
-             removeTouching(Skill.class);
-             getWorld().removeObject(this) ;
-             Greenfoot.playSound("hit.mp3");
+            Explosion explo = new Explosion();
+            getWorld().addObject(explo , getX() , getY());  
+            removeTouching(Skill.class);
+            getWorld().removeObject(this) ;
+            Greenfoot.playSound("hit.mp3");
              
         }
     }

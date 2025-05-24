@@ -167,7 +167,7 @@ public class MyWorld extends World
     public void creatbug()
     {
         Bug bug = new Bug();
-            int x = Greenfoot.getRandomNumber(300);
+            int x = Greenfoot.getRandomNumber(400);
             int y = 100 + Greenfoot.getRandomNumber(50) ;
             addObject(bug , x, y );
     }
