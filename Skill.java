@@ -16,9 +16,12 @@ public class Skill extends Actor
     {
         setLocation(getX() , getY() - 3);
         MyWorld world = (MyWorld) getWorld();
-        if(getY() <= 0 )
+        
+        if(getY() <= 0  )
         {
             world.removeObject(this);
         }
+        
     }
+    
 }

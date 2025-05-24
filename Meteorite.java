@@ -28,10 +28,9 @@ public class Meteorite extends Actor
     }
     public void act()
     {
-        
-        fly();
-        isGameOver();
         animateMeteorite();
+        fly();
+        hit();
     }
     public void fly()
     {
@@ -39,28 +38,27 @@ public class Meteorite extends Actor
         if(isTouching(Bullets.class))
         {
             setLocation(getX() , getY());
-            meteoriteHealth -- ;
             removeTouching(Bullets.class);
-            if(meteoriteHealth <= 0)
-            {
-                getWorld().removeObject(this) ;
-            }
-            
         }
         else
         {
             setLocation(getX() , getY() + 6);
-           
         }
-    }
-    public void isGameOver()
-    {
-        MyWorld world = (MyWorld) getWorld();
         if(isTouching(Jet.class))
             {   
-            
                 world.gameOver();
-                
             }
+    }
+    public void hit()
+    {
+        MyWorld world = (MyWorld) getWorld();
+        if(isTouching(Skill.class) )
+        {
+             world.scoreIncrease();
+             removeTouching(Skill.class);
+             getWorld().removeObject(this) ;
+             Greenfoot.playSound("hit.mp3");
+             
+        }
     }
 }
