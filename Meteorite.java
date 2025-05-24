@@ -38,7 +38,7 @@ public class Meteorite extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Bullets.class))
         {
-            setLocation(getX() , getY() + 4);
+            setLocation(getX() , getY());
             meteoriteHealth -- ;
             removeTouching(Bullets.class);
             if(meteoriteHealth <= 0)
