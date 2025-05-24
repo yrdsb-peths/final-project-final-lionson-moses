@@ -21,7 +21,7 @@ public class StartScreen extends World
         setBackground("images/space.jpg");
         
         
-        addObject(test , 100 , 100);
+        
         
         Label startLabel = new Label("Bug Blaster", 100);
         addObject(startLabel, 300, 200);

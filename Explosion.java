@@ -18,7 +18,7 @@ public class Explosion extends Actor
         for(int i = 0; i< idle.length ; i++)
         {
             idle[i] = new GreenfootImage("images/imageExplosion/explosion00" + i + ".png");
-            idle[i].scale(50 , 50);
+            idle[i].scale(150 , 150);
         }
         
         setImage(idle[0]);
