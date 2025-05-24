@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Meteorite extends Actor
 {
-    public int meteoriteHealth = 30 ;
+    public int meteoriteHealth = 20 ;
     GreenfootImage[] idle = new GreenfootImage[4];
     public Meteorite()
     {
@@ -37,7 +37,8 @@ public class Meteorite extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Bullets.class))
         {
-            setLocation(getX() , getY());
+            setLocation(getX() , getY() -3);
+            meteoriteHealth--;
             OneTimeExplosion explo = new OneTimeExplosion();
             getWorld().addObject(explo , getX() , getY());  
             removeTouching(Skill.class);
@@ -45,7 +46,7 @@ public class Meteorite extends Actor
         }
         else
         {
-            setLocation(getX() , getY() + 6);
+            setLocation(getX() , getY() + 4);
         }
         if(isTouching(Jet.class))
             {   
@@ -55,13 +56,13 @@ public class Meteorite extends Actor
     public void hit()
     {
         MyWorld world = (MyWorld) getWorld();
-        if(isTouching(Skill.class) )
+        if(isTouching(Skill.class) || meteoriteHealth == 0)
         {
             OneTimeExplosion explo = new OneTimeExplosion();
             getWorld().addObject(explo , getX() , getY());  
             removeTouching(Skill.class);
             getWorld().removeObject(this) ;
-            Greenfoot.playSound("hit.mp3");
+            Greenfoot.playSound("rock.mp3");
              
         }
     }
