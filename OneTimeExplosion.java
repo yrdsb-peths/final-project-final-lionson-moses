@@ -14,8 +14,7 @@ public class OneTimeExplosion extends Actor
      */
     GreenfootImage[] idle = new GreenfootImage[9];
     public int count = 0 ;
-    public int delay = 3 ;
-    public int delayCount = 0 ;
+    
     public  OneTimeExplosion()
     {
         for(int i = 0; i< idle.length ; i++)
@@ -34,16 +33,10 @@ public class OneTimeExplosion extends Actor
     
     public void act()
     {
-        if(delay > delayCount)
-            {
-                delayCount++ ;
-            }
-            else 
-            {
-                setImage(idle[imageIndex]);
-                imageIndex = (imageIndex + 1 )%  idle.length ;
-                count ++ ;
-            }
+        
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1 )%  idle.length ;
+        count ++ ;
         if(count >= 18)
         {
             getWorld().removeObject(this);

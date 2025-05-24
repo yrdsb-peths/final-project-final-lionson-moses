@@ -38,6 +38,9 @@ public class Meteorite extends Actor
         if(isTouching(Bullets.class))
         {
             setLocation(getX() , getY());
+            OneTimeExplosion explo = new OneTimeExplosion();
+            getWorld().addObject(explo , getX() , getY());  
+            removeTouching(Skill.class);
             removeTouching(Bullets.class);
         }
         else
