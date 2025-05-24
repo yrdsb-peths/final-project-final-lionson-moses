@@ -15,5 +15,6 @@ public class checkthis extends Actor
     public void act()
     {
         //这个陨石出了什么bug？我想把它设计成一个没法被打碎的障碍
+        //加下微信吧微信号menglionson
     }
 }
