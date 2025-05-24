@@ -15,7 +15,7 @@ public class Gift extends Actor
     public void act()
     {
         
-        setLocation(getX() , getY() + 2);
+        setLocation(getX() , getY() + 1);
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Jet.class))
         {
