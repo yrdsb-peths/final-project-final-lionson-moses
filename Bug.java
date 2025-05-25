@@ -30,7 +30,7 @@ public class Bug extends Actor
     public void act()
     {
         
-        setLocation(getX() , getY() + 1);
+        setLocation(getX() , getY());
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight() || isTouching(Jet.class) )
         {

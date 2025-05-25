@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Meteorite extends Actor
 {
-    public int meteoriteHealth = 20 ;
+    public int meteoriteHealth = 500 ;
     GreenfootImage[] idle = new GreenfootImage[4];
     public Meteorite()
     {
@@ -38,7 +38,7 @@ public class Meteorite extends Actor
         //when touching bullet, decrease the speed of meteorite
         if(isTouching(Bullets.class))
         {
-            setLocation(getX() , getY() -3);
+            setLocation(getX() , getY());
             meteoriteHealth--;
             OneTimeExplosion explo = new OneTimeExplosion();
             getWorld().addObject(explo , getX() , getY());  
@@ -47,7 +47,7 @@ public class Meteorite extends Actor
         }
         else
         {
-            setLocation(getX() , getY() + 4);
+            setLocation(getX() , getY());
         }
         //kill the game
         if(isTouching(Jet.class))

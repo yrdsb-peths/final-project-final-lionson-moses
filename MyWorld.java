@@ -10,7 +10,7 @@ public class MyWorld extends World
     public int score = 0 ;
     Label scoreLabel;
     
-    public int level = 0 ;
+    public int level = 20 ;
     
     
     public int energy = 1;
@@ -176,7 +176,7 @@ public class MyWorld extends World
     public void createGift()
     {
         Gift gift = new Gift();
-        int x = Greenfoot.getRandomNumber(300);
+        int x = Greenfoot.getRandomNumber(350);
         int y = 100 + Greenfoot.getRandomNumber(50) ;
         addObject(gift , x, y );
     }
@@ -185,7 +185,7 @@ public class MyWorld extends World
     {
         Meteorite mete = new Meteorite();
         int x = Greenfoot.getRandomNumber(300);
-        addObject(mete, x, -20);
+        addObject(mete, x, 200);
         Greenfoot.playSound("boom.mp3");
     }
 }
