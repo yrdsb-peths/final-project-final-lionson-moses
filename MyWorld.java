@@ -119,9 +119,9 @@ public class MyWorld extends World
             int y = jet.getY() ;
             
             addObject(bul , x , y );
-            if(level < 11)
+            if(level < 12)
             {
-                bulletCooldown = 27 - 2*level ;
+                bulletCooldown = 29 - 2*level ;
             }
             else
             {
