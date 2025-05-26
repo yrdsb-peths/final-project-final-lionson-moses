@@ -24,6 +24,7 @@ public class StartScreen extends World
         addObject(startLabel, 300, 220);
         
         
+        
         Label instruction1 = new Label("press space to start the game and SHOOT!", 20);
         Label instruction2 = new Label("press Left and Right to MOVEAROUND!", 20);
         Label instruction3 = new Label("Eat the LIGHTING and press Down to ACTIVATE SECRET BULLET !", 20);
@@ -63,7 +64,14 @@ public class StartScreen extends World
     public void act()
     {
 
-        if(Greenfoot.isKeyDown("space"))
+        if(Greenfoot.isKeyDown("tab"))
+        {
+            Instruction instructionWorld = new Instruction();
+            Greenfoot.setWorld(instructionWorld);
+            music.pause();
+            Greenfoot.playSound("pressToStart.mp3");
+        }
+        else if(Greenfoot.isKeyDown("space"))
         {
             MyWorld startGame = new MyWorld();
             Greenfoot.setWorld(startGame);
