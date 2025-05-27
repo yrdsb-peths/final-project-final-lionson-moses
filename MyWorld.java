@@ -2,7 +2,8 @@ import greenfoot.*;
 
 public class MyWorld extends World 
 {
-    //speed     
+    //speed
+    GreenfootImage[] space = new GreenfootImage[39];
     private int bulletCooldown = 0 ;
     private int energyStore = 0;
     private Jet jet ;
@@ -18,14 +19,11 @@ public class MyWorld extends World
     Label energys;
     
     private int explosionCooldown = 0 ;
-    
-    
+    SimpleTimer animationTimer = new SimpleTimer();
     public boolean isGameover = false ;
     public MyWorld() 
     {
         super(400, 800, 1, false);
-        
-        setBackground("images/space.jpg");
         
         jet = new Jet();
         addObject(jet , 200 , 670 );
@@ -44,8 +42,12 @@ public class MyWorld extends World
         addObject(energyIcon, 60, 780);
         addObject(energys, 30, 780);
         
-        
-        
+        for(int i = 0; i< space.length ; i++)
+        {
+            space[i] = new GreenfootImage("images/space/space" + i + ".png");
+        }
+        setBackground(space[0]);
+        animationTimer.mark();
         /*
         Label levelLabel = new Label(0,50);
         addObject(levelLabel ,100 , 20);
@@ -74,6 +76,19 @@ public class MyWorld extends World
             Final gameOverAnimation = new Final(score);
             Greenfoot.setWorld(gameOverAnimation);
         }
+        animateSpace();
+    }
+    int backgroundIndex = 0;
+    public void animateSpace()
+    {
+        if(animationTimer.millisElapsed() < 40)
+        {
+            return;
+        }
+        animationTimer.mark();
+        setBackground(space[backgroundIndex]);
+        backgroundIndex = (backgroundIndex + 1 )%  space.length ;
+        
     }
     /*public void levelIncrease()
     {
