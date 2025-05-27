@@ -22,8 +22,9 @@ public class Instruction extends World
         super(600, 400, 1); 
         setBackground("images/space.jpg");
         
-        Label instruction = new Label("Welcome!", 50);
+        InstructionLabel instruction = new InstructionLabel("Welcome!", 50);
         addObject(instruction , 300 , 200);
+        
     }
     public void act()
     {
@@ -42,28 +43,10 @@ public class Instruction extends World
     
     public void instructionPhase1()
     {
-         if(Greenfoot.isKeyDown("right"))
-        {
-            
-            Label instruction = new Label("Welcome!", 50);
-            addObject(instruction , 300 , 200);
-            
-        }
-        /*
-        if(Greenfoot.isKeyDown("space"))
-            
-            {
-                removeObject(instruction);
-            }
-        */
+        
     }
     public void instructionPhase2()
     {
-         if(Greenfoot.isKeyDown("space"))
-        {
-            Label instruction = new Label("Welcome!", 50);
-            addObject(instruction , 300 , 200);
-        }
-
+        
     }
 }

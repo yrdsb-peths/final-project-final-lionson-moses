@@ -16,27 +16,30 @@ public class InstructionLabel extends Actor
     private static final Color transparent = new Color(0,0,0,0);
     
     public int coolDown = 90 ;
-    
+    public double appearIndex = 0 ;
+    public int fade = 255 ;
     /**
      * Act - do whatever the InstructionLabel wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        Toast();
+        Fade();
     }
     //this method makes the label show up for some time and disappear.
-    public void Toast()
-    {
-        for(int i = 250 ; i < 0 ; i--)
+    
+    public void Fade() 
+     {
+        if (fade > 0) 
         {
-            if(coolDown >= 0 )
-            {
-                coolDown -- ;
-            }
-            getImage().setTransparency(i);
+            fade -= 3; 
+            getImage().setTransparency( (int)fade ); 
+        } 
+        else 
+        {
+            getImage().setTransparency(0); 
         }
-    }
+        }
     public InstructionLabel(int value, int fontSize)
     {
         this(Integer.toString(value), fontSize);
