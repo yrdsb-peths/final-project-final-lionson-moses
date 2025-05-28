@@ -20,13 +20,16 @@ public class TutorialStar extends Actor
     {
         hit();
     }
-    public void hit()
+    public boolean hit()
     {
-        if(isTouching(Jet.class) )
+        if(isTouching(Jet.class) || isTouching( CopyBullets.class ))
         {
-             getWorld().removeObject(this) ;
-             Greenfoot.playSound("hit.mp3");
-             
+            getWorld().removeObject(this) ;
+            return true ;
+        }
+        else
+        {
+            return false ;
         }
     }
 }

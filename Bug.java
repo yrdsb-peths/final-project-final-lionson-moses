@@ -58,8 +58,5 @@ public class Bug extends Actor
              Greenfoot.playSound("hit.mp3");
              
         }
-    }
-    
-        
-    
+    }  
 }

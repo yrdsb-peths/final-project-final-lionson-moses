@@ -162,8 +162,7 @@ public class MyWorld extends World
     ///this spawns bugs
     public void spawn()
     {
-        
-        if (getObjects(Bug.class).isEmpty()) //(buged, need to be fixed)
+        if (getObjects(Bug.class).isEmpty()) 
         
         {
             level += 1 ;
@@ -182,10 +181,13 @@ public class MyWorld extends World
     /// and use this method
     public void creatbug()
     {
+        
         Bug bug = new Bug();
-            int x = Greenfoot.getRandomNumber(400);
-            int y = 100 + Greenfoot.getRandomNumber(50) ;
-            addObject(bug , x, y );
+        
+        int x = Greenfoot.getRandomNumber(400);
+        int y = 100 + Greenfoot.getRandomNumber(50) ;
+        addObject(bug , x, y );
+        
     }
     //create gift for jet
     public void createGift()

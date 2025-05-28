@@ -1,16 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * hard to broke, destoryed power for jet
+ * Write a description of class CopyMeteorite here.
  * 
- * @Lionson and Moses 
- * v1.0
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class Meteorite extends Actor
+public class CopyMeteorite extends Actor
 {
     public int meteoriteHealth = 20 ;
     GreenfootImage[] idle = new GreenfootImage[4];
-    public Meteorite()
+    public CopyMeteorite()
     {
         for(int i = 0; i< idle.length ; i++)
         {
@@ -31,43 +31,45 @@ public class Meteorite extends Actor
         animateMeteorite();
         fly();
         hit();
+        
     }
     public void fly()
     {
-        MyWorld world = (MyWorld) getWorld();
+        Instruction world = (Instruction) getWorld();
         //when touching bullet, decrease the speed of meteorite
-        if(isTouching(Bullets.class) )
+        if( isTouching(CopyBullets.class))
         {
             setLocation(getX() , getY() -3);
             meteoriteHealth--;
             OneTimeExplosion explo = new OneTimeExplosion();
             getWorld().addObject(explo , getX() , getY());  
-            removeTouching(Skill.class);
-            removeTouching(Bullets.class);
+            removeTouching(CopySkill.class);
+            removeTouching(CopyBullets.class);
         }
         else
         {
             setLocation(getX() , getY() + 4);
         }
-        //kill the game
-        if(isTouching(Jet.class))
-            {   
-                world.gameOver();
-            }
+        if(getY() >= 700)
+        {
+            world.removeObject(this);
+        }
+        
     }
     //when it touching skill or shoot 20times by bullet, will explosion
     public void hit()
     {
-        MyWorld world = (MyWorld) getWorld();
-        if(isTouching(Skill.class) || meteoriteHealth == 0)
+        Instruction world = (Instruction) getWorld();
+        if(! world.getObjects(CopyMeteorite.class).isEmpty() && isTouching(CopySkill.class) || meteoriteHealth == 0)
         {
             OneTimeExplosion explo = new OneTimeExplosion();
             getWorld().addObject(explo , getX() , getY());  
-            removeTouching(Skill.class);
+            removeTouching(CopySkill.class);
             getWorld().removeObject(this) ;
             Greenfoot.playSound("rock.mp3");
              
         }
+        
     }
     
 }
