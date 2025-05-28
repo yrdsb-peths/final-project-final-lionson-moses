@@ -50,26 +50,25 @@ public class CopyMeteorite extends Actor
         {
             setLocation(getX() , getY() + 4);
         }
-        if(getY() >= 700)
-        {
-            world.removeObject(this);
-        }
-        
+       
     }
     //when it touching skill or shoot 20times by bullet, will explosion
     public void hit()
     {
         Instruction world = (Instruction) getWorld();
-        if(! world.getObjects(CopyMeteorite.class).isEmpty() && isTouching(CopySkill.class) || meteoriteHealth == 0)
+        
+        if(isTouching(CopySkill.class) )
         {
-            OneTimeExplosion explo = new OneTimeExplosion();
-            getWorld().addObject(explo , getX() , getY());  
-            removeTouching(CopySkill.class);
-            getWorld().removeObject(this) ;
-            Greenfoot.playSound("rock.mp3");
+             
+             removeTouching(CopySkill.class);
+             getWorld().removeObject(this) ;
+             Greenfoot.playSound("hit.mp3");
              
         }
-        
+        else if ( getY() >= 800 )
+        {
+            getWorld().removeObject(this) ;
+        }
     }
     
 }

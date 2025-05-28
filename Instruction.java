@@ -53,13 +53,19 @@ public class Instruction extends World
         instructionPhase1();
         instructionPhase2();
         instructionPhase3();
-        //instructionPhase4();
-        
-        
-        
+        if( getObjects(CopyMeteorite.class).isEmpty() && count < 1)
+        { 
+            instructionPhase4();
+        }
+        if(isPhaseDone[3] && getObjects(CopyMeteorite.class).isEmpty())
+        {
+            startGame();
+        }
     }
     public void startGame()
     {
+        InstructionLabel instruction = new InstructionLabel("Now press space to start the game!", 30);
+        addObject(instruction , 200 , 500);
         if(Greenfoot.isKeyDown("space"))
         {
             MyWorld gameWorld = new MyWorld();
@@ -128,22 +134,23 @@ public class Instruction extends World
                 addObject(instruction2 , 200 , 500);
                 CopyMeteorite tutorialMeteorite = new CopyMeteorite();
                 addObject( tutorialMeteorite , 200 , 100);
-                if(getObjects(CopyMeteorite.class).isEmpty() && count < 1)
+                if( getObjects(CopyMeteorite.class).isEmpty() && count < 1)
                 {
                     count = 1 ;
                 }
                 else
                 {
                     isPhaseDone[2] = true ;
+                    count = 0 ;
                 }
             }
-            count = 0 ;
         }
+        
     }
-    /*
+    
     public void instructionPhase4()
     {
-        if(isPhaseDone[0] == true && isPhaseDone[1] == true && isPhaseDone[2] == true && isPhaseDone[3] == false )
+        if(isPhaseDone[2] == true && isPhaseDone[3] == false )
         {
             if(Greenfoot.isKeyDown("Tab"))
             {
@@ -164,8 +171,10 @@ public class Instruction extends World
            
             count = 0 ;
         }
+        
     }
-    */
+    
+    
     /// below code are th ecopy of the MyWorld , mainly the functions of the game
     public void creatBullets()
     {
