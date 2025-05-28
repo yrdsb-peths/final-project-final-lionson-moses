@@ -16,8 +16,8 @@ public class InstructionLabel extends Actor
     private static final Color transparent = new Color(0,0,0,0);
     
     public int coolDown = 90 ;
-    public double appearIndex = 0 ;
-    public int fade = 255 ;
+    
+    public double fade = 255 ;
     /**
      * Act - do whatever the InstructionLabel wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -32,9 +32,18 @@ public class InstructionLabel extends Actor
      {
         if (fade > 0) 
         {
-            fade -= 3; 
-            getImage().setTransparency( (int)fade ); 
+            if (fade >  200)
+            {
+                fade -= 0.5; 
+                getImage().setTransparency( (int)fade ); 
+            }
+            else
+            {
+                fade -= 4 ;
+                getImage().setTransparency( (int)fade ); 
+            }
         } 
+        
         else 
         {
             getImage().setTransparency(0); 
