@@ -25,18 +25,12 @@ public class StartScreen extends World
         
         
         
-        Label instruction1 = new Label("press space to start the game and SHOOT!", 20);
-        Label instruction2 = new Label("press Left and Right to MOVEAROUND!", 20);
-        Label instruction3 = new Label("Eat the LIGHTING and press Down to ACTIVATE SECRET BULLET !", 20);
-        Label instruction4 = new Label("DONT let the bug touch you or get over you!", 20);
-        Label instruction5 = new Label("Eat the Nighting to gain HUGE BULLET SKILL! You can press 'Down' to activate it!" , 20);
-        Label instruction6 = new Label("Careful with the Meteorite! you can destrpy it only using skill!" , 20);
+        Label instruction1 = new Label("press space to start the game and SHOOT!", 35);
+        Label instruction2 = new Label("press Tab to start tutorial!", 35);
+        
         addObject(instruction1 , 300 , 30);
         addObject(instruction2 , 300 , 60);
-        addObject(instruction3 , 300 , 90);
-        addObject(instruction4 , 300 , 120);
-        addObject(instruction5 , 300 , 150);
-        addObject(instruction6 , 300 , 180);
+        
         
         
         Jet demonJet = new Jet();
