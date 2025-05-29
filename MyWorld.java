@@ -35,7 +35,7 @@ public class MyWorld extends World
         addObject(fire2 , 182 , 790);
         
         scoreLabel = new Label(0,50);
-        addObject(scoreLabel , 30,20);
+        addObject(scoreLabel , 40,20);
         
         Icon energyIcon = new Icon();
         energys = new Label(0, 40);
@@ -127,13 +127,20 @@ public class MyWorld extends World
         if (Greenfoot.isKeyDown("space") && bulletCooldown == 0)
         
         {
-            
-            Bullets bul = new Bullets();
+            int x1 = jet.getX() - 10 ;
+            int y= jet.getY()  ;
+            int x2 = jet.getX() + 10 ;
+            Bullets bul1 = new Bullets();
+            if(level >= 10)
+            {
+                Bullets bul2 = new Bullets();
+                addObject(bul2 , x2 , y );
+            }
             Greenfoot.playSound("fire.mp3");
-            int x = jet.getX() ;
-            int y = jet.getY() ;
             
-            addObject(bul , x , y );
+           
+            addObject(bul1 , x1 , y );
+            
             if(level < 12)
             {
                 bulletCooldown = 29 - 2*level ;
