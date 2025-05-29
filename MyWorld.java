@@ -3,7 +3,7 @@ import greenfoot.*;
 public class MyWorld extends World 
 {
     //speed
-    GreenfootImage[] space = new GreenfootImage[39];
+    GreenfootImage[] space = new GreenfootImage[40];
     private int bulletCooldown = 0 ;
     private int energyStore = 0;
     private Jet jet ;
@@ -44,7 +44,7 @@ public class MyWorld extends World
         
         for(int i = 0; i< space.length ; i++)
         {
-            space[i] = new GreenfootImage("images/space/space" + i + ".png");
+            space[i] = new GreenfootImage("images/spaceNew/space" + i + ".gif");
         }
         setBackground(space[0]);
         animationTimer.mark();
@@ -81,7 +81,7 @@ public class MyWorld extends World
     int backgroundIndex = 0;
     public void animateSpace()
     {
-        if(animationTimer.millisElapsed() < 40)
+        if(animationTimer.millisElapsed() < 30)
         {
             return;
         }
