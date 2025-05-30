@@ -28,12 +28,14 @@ public class DoubleBulletsAbility extends Actor
         if(isTouching(Jet.class))
         {
             Greenfoot.playSound("gaingift.mp3");
-            world.removeObject(this);
+            //world.removeObject(this);
             return true ;
         }
         else
         {
             return false ;
         }
+       
     }
+    
 }

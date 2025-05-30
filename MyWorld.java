@@ -7,7 +7,7 @@ public class MyWorld extends World
     private int bulletCooldown = 0 ;
     private int energyStore = 0;
     private Jet jet ;
-    
+    private DoubleBulletsAbility ability ; 
     public int score = 0 ;
     Label scoreLabel;
     
@@ -50,6 +50,8 @@ public class MyWorld extends World
         }
         setBackground(space[0]);
         animationTimer.mark();
+        
+        
         /*
         Label levelLabel = new Label(0,50);
         addObject(levelLabel ,100 , 20);
@@ -121,21 +123,27 @@ public class MyWorld extends World
         if (Greenfoot.isKeyDown("space") && bulletCooldown == 0)
         
         {
-            int x1 = jet.getX();
+            int x1 = jet.getX() ;
             int y= jet.getY() -50  ;
             int x2 = jet.getX() + 10 ;
             Bullets bul1 = new Bullets();
-            while( DoubleBulletsAbility.isHit() )
+            if( level >= 10 )
             {
+                
                 Bullets bul2 = new Bullets();
                 addObject(bul2 , x2 , y );
-                x1 = x1 - 10;
+                x1 -= 10 ;
             }
+            else
+            {
+                ;
+            }
+            
             Greenfoot.playSound("fire.mp3");
             
-           
-            addObject(bul1 , x1 , y );
             
+            addObject(bul1 , x1 , y );
+                        
             if(level < 12)
             {
                 bulletCooldown = 29 - 2*level ;
@@ -177,14 +185,7 @@ public class MyWorld extends World
             {
                 createMeteorite();
             }
-            if(level >= 6)
-            {
-                DoubleBulletsAbility ability = new DoubleBulletsAbility();
-                int x = Greenfoot.getRandomNumber(400);
-                int y = 100 + Greenfoot.getRandomNumber(50) ;
-                addObject(ability , x, y );
-                
-            }
+            
         }
     }
     /// the game became super laggy if I don't creat 
