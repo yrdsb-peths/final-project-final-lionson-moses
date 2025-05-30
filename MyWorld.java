@@ -21,6 +21,7 @@ public class MyWorld extends World
     private int explosionCooldown = 0 ;
     SimpleTimer animationTimer = new SimpleTimer();
     public boolean isGameover = false ;
+    public Bar bar = new Bar("Player 1", "Health Points", 100, 200);
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -31,6 +32,7 @@ public class MyWorld extends World
         Jetfire fire = new Jetfire(false);
         addObject(fire , 220 , 790);
         
+        addObject(bar, 100, 400);
         Jetfire fire2 = new Jetfire(true);
         addObject(fire2 , 182 , 790);
         
@@ -127,14 +129,15 @@ public class MyWorld extends World
         if (Greenfoot.isKeyDown("space") && bulletCooldown == 0)
         
         {
-            int x1 = jet.getX() - 10 ;
-            int y= jet.getY()  ;
+            int x1 = jet.getX();
+            int y= jet.getY() -50  ;
             int x2 = jet.getX() + 10 ;
             Bullets bul1 = new Bullets();
             if(level >= 10)
             {
                 Bullets bul2 = new Bullets();
                 addObject(bul2 , x2 , y );
+                x1 = x1 - 10;
             }
             Greenfoot.playSound("fire.mp3");
             
@@ -211,5 +214,10 @@ public class MyWorld extends World
         int x = Greenfoot.getRandomNumber(300);
         addObject(mete, x, -20);
         Greenfoot.playSound("boom.mp3");
+    }
+    
+    public void subtractBar(int numbers)
+    {
+        bar.subtract(numbers);
     }
 }

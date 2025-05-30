@@ -10,6 +10,7 @@ public class Meteorite extends Actor
 {
     public int meteoriteHealth = 20 ;
     GreenfootImage[] idle = new GreenfootImage[4];
+    SimpleTimer animationTimer = new SimpleTimer();
     public Meteorite()
     {
         for(int i = 0; i< idle.length ; i++)
@@ -17,13 +18,18 @@ public class Meteorite extends Actor
             idle[i] = new GreenfootImage("images/imageMeteorite/Meteorite" + i + ".gif");
         }
         setImage(idle[0]);
+        animationTimer.mark();
     }
     int imageIndex = 0;
     public void animateMeteorite()
     {
-       
-            setImage(idle[imageIndex]);
-            imageIndex = (imageIndex + 1)%  idle.length ;
+        if(animationTimer.millisElapsed() < 50)
+        {
+            return;
+        }
+        animationTimer.mark();
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1)%  idle.length ;
         
     }
     public void act()

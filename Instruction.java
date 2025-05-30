@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Instruction extends World
 {
     private int bulletCooldown = 0 ;
-    private Jet jet ;
-    
-    public int energy = 1;
-    public int elec = 1;
+    private Jet jet ;    
+    private int energyStore = 0;
+    public int energy = 100;
+    public int elec = 100;
     
     public int count = 0 ;
     
@@ -43,9 +43,13 @@ public class Instruction extends World
     public void act()
     {
         
-         if (bulletCooldown  > 0 ) 
+        if (bulletCooldown  > 0 ) 
         {
             bulletCooldown--;
+        }
+       if(energyStore > 0)
+        {
+            energyStore--;
         }
         creatBullets();
         
@@ -185,7 +189,7 @@ public class Instruction extends World
             CopyBullets bul = new CopyBullets();
             Greenfoot.playSound("fire.mp3");
             int x = jet.getX() ;
-            int y = jet.getY() ;
+            int y = jet.getY() - 30;
             
             addObject(bul , x , y );
             
@@ -194,7 +198,7 @@ public class Instruction extends World
         }
         
         
-        if(Greenfoot.isKeyDown("down") && energy > 0  )
+        if(Greenfoot.isKeyDown("down") && energy > 0 && energyStore == 0)
         {
             CopySkill bom = new CopySkill();
             Greenfoot.playSound("lazer.mp3");
@@ -203,6 +207,7 @@ public class Instruction extends World
             addObject(bom , x, y);
             energy--;
             elec--;
+            energyStore = 60;
             
             
         }
