@@ -20,7 +20,7 @@ public class Bar extends Actor
     private Color textColor = Color.BLACK; // the color of all text and the frame of the bar itself
     private Color safeColor = Color.GREEN; // the color of the bar while in the safe range
     private Color dangerColor = Color.RED; // the color of the bar while in the danger range
-//  The color of the bar AT the breakpoint will be the average color between the safe color and the danger color
+    //The color of the bar AT the breakpoint will be the average color between the safe color and the danger color
     private float fontSize = 18.0f; // the size of the text
     private int value = 0; // the current value of the bar
     private int maximumValue = 0; // the maximum value of the bar
