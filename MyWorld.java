@@ -92,14 +92,6 @@ public class MyWorld extends World
         backgroundIndex = (backgroundIndex + 1 )%  space.length ;
         
     }
-    /*public void levelIncrease()
-    {
-        level ++ ;
-        levelLabel.setValue(level);
-    }
-    */
-    
-   
     ///this is label Gameover,
     public void gameOver()
     {
@@ -133,7 +125,7 @@ public class MyWorld extends World
             int y= jet.getY() -50  ;
             int x2 = jet.getX() + 10 ;
             Bullets bul1 = new Bullets();
-            if(level >= 10)
+            while( DoubleBulletsAbility.isHit() )
             {
                 Bullets bul2 = new Bullets();
                 addObject(bul2 , x2 , y );
@@ -184,6 +176,14 @@ public class MyWorld extends World
             if(level >= 6)
             {
                 createMeteorite();
+            }
+            if(level >= 6)
+            {
+                DoubleBulletsAbility ability = new DoubleBulletsAbility();
+                int x = Greenfoot.getRandomNumber(400);
+                int y = 100 + Greenfoot.getRandomNumber(50) ;
+                addObject(ability , x, y );
+                
             }
         }
     }
