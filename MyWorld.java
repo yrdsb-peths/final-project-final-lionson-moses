@@ -12,7 +12,7 @@ public class MyWorld extends World
     Label scoreLabel;
     
     public int level = 0 ;
-    
+    public int bossNumber = 1 ;
     
     public int energy = 1;
     public int elec = 1;
@@ -72,6 +72,8 @@ public class MyWorld extends World
         
         creatBullets();
         
+        creatBoss();
+        
         spawn();
         setElec();
         
@@ -117,11 +119,14 @@ public class MyWorld extends World
     }
     public void creatBoss()
     {
-        if(level % 5 == 0)
-        {
-            FinalBoss boss = new FinalBoss();
-            addObject(boss , 200 , 400);
-        }
+            
+            if(getObjects(FinalBoss.class).isEmpty() && level % 2 == 0 && level != 0 )
+            {
+                FinalBoss boss = new FinalBoss();
+                addObject(boss , 200 , 300);
+            }
+            
+        
     }
     ///this creats bullets, 
     ///they spawn with the same location as the jet class.
@@ -141,10 +146,7 @@ public class MyWorld extends World
                 addObject(bul2 , x2 , y );
                 x1 -= 10 ;
             }
-            else
-            {
-                ;
-            }
+            
             
             Greenfoot.playSound("fire.mp3");
             

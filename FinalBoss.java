@@ -39,8 +39,8 @@ public class FinalBoss extends Actor
     public void moveAround()
     {
         
-        move(10);
-        if(getY() <= getWorld().getHeight() - 300)
+        move(5);
+        if(getY() <= getWorld().getHeight() - 300 && getY() > 0 && getX() < getWorld().getWidth() && getX() > 0)
         {
             if(Greenfoot.getRandomNumber(100)<10)
             {
