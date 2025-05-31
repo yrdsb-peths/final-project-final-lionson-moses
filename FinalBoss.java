@@ -35,6 +35,7 @@ public class FinalBoss extends Actor
     {
         moveAround() ;
         animateBoss() ;
+        healthChange() ;
     }
     public void moveAround()
     {
@@ -58,6 +59,20 @@ public class FinalBoss extends Actor
         else
         {
             turn(180);
+        }
+    }
+    public void healthChange()
+    {
+        MyWorld world = (MyWorld) getWorld();
+        if(isTouching(Bullets.class))
+        {
+            world.subtractBar(1);
+            removeTouching(Bullets.class);
+        }
+        else if (isTouching(Skill.class))
+        {
+            world.subtractBar(5);
+            removeTouching(Skill.class);
         }
     }
 }

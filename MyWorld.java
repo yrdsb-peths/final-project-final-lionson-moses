@@ -21,7 +21,7 @@ public class MyWorld extends World
     private int explosionCooldown = 0 ;
     SimpleTimer animationTimer = new SimpleTimer();
     public boolean isGameover = false ;
-    public Bar bar = new Bar("Player 1", "Health Points", 100, 200);
+    public Bar bar ; 
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -32,7 +32,7 @@ public class MyWorld extends World
         Jetfire fire = new Jetfire(false);
         addObject(fire , 220 , 790);
         
-        addObject(bar, 100, 400);
+        
         Jetfire fire2 = new Jetfire(true);
         addObject(fire2 , 182 , 790);
         
@@ -120,12 +120,14 @@ public class MyWorld extends World
     public void creatBoss()
     {
             
-            if(getObjects(FinalBoss.class).isEmpty() && level % 2 == 0 && level != 0 )
-            {
-                FinalBoss boss = new FinalBoss();
-                addObject(boss , 200 , 300);
-            }
-            
+        if(getObjects(FinalBoss.class).isEmpty() && level % 2 == 0 && level != 0 )
+        {
+            FinalBoss boss = new FinalBoss();
+            addObject(boss , 200 , 300);
+            bar = new Bar("Player 1", "Health Points", 70, 70);
+            addObject(bar, 200, 100);
+        }
+        
         
     }
     ///this creats bullets, 
@@ -225,7 +227,6 @@ public class MyWorld extends World
         addObject(mete, x, -20);
         Greenfoot.playSound("boom.mp3");
     }
-    
     public void subtractBar(int numbers)
     {
         bar.subtract(numbers);
