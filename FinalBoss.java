@@ -24,7 +24,7 @@ public class FinalBoss extends Actor
         setImage(idle[0]);
     }
     int imageIndex = 0;
-    public void animateExplosion()
+    public void animateBoss()
     {
        
             setImage(idle[imageIndex]);
@@ -33,13 +33,14 @@ public class FinalBoss extends Actor
     }
     public void act()
     {
-        moveAround();
+        moveAround() ;
+        animateBoss() ;
     }
     public void moveAround()
     {
         
         move(10);
-        if(getY() <= getWorld().getHeight() - 200)
+        if(getY() <= getWorld().getHeight() - 300)
         {
             if(Greenfoot.getRandomNumber(100)<10)
             {
