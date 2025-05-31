@@ -115,7 +115,14 @@ public class MyWorld extends World
     {
         energys.setValue(elec);
     }
-    
+    public void creatBoss()
+    {
+        if(level % 5 == 0)
+        {
+            FinalBoss boss = new FinalBoss();
+            addObject(boss , 200 , 400);
+        }
+    }
     ///this creats bullets, 
     ///they spawn with the same location as the jet class.
     public void creatBullets()
