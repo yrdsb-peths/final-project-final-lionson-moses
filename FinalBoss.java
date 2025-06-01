@@ -8,16 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FinalBoss extends Actor
 {
-    /**
-     * Act - do whatever the FinalBoss wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     GreenfootImage[] idle = new GreenfootImage[14];
     public  FinalBoss()
     {
         for(int i = 0; i< idle.length ; i++)
         {
-            idle[i] = new GreenfootImage("images/FinalBossUFO/tile00" + i + ".png");
+            idle[i] = new GreenfootImage("images/stage1/tile00" + i + ".png");
             idle[i].scale(200 , 200);
         }
         
