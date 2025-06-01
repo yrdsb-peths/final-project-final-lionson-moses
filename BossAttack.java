@@ -14,7 +14,10 @@ public class BossAttack extends Actor
      */
     public BossAttack()
     {
-        setImage("bossAttack.jpg");
+        
+        GreenfootImage image = new GreenfootImage("bossAttack.jpg");
+        image.scale(30 , 50);
+        setImage(image);
     }
     public void act()
     {
@@ -23,6 +26,17 @@ public class BossAttack extends Actor
         if(getY() >= 800 )
         {
             world.removeObject(this);
+        }
+        hit();
+    }
+    public void hit()
+    {
+        MyWorld world = (MyWorld) getWorld();
+        if( isTouching(Jet.class))
+        {
+             
+             
+             world.gameOver();    
         }
     }
 }

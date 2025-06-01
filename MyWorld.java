@@ -134,8 +134,8 @@ public class MyWorld extends World
             int y= boss.getY()  ;
             BossAttack attack = new BossAttack();
             addObject( attack , x , y ) ;
-            bossAttackCooldown = 30 ;
-            bossAttackShotCount += 1 ;
+            bossAttackCooldown = 90 ;
+            
         }
     }
     public void creatBoss()
