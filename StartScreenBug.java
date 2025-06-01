@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartScreenBug extends Actor
 {
-    private int turnDirectionCooldown = 0 ;
+    
     GreenfootImage[] idle = new GreenfootImage[10];
     public  StartScreenBug()
     {
@@ -32,10 +32,7 @@ public class StartScreenBug extends Actor
     {
         animateStartScreenBugs();
         
-        if (turnDirectionCooldown  > 0 ) 
-        {
-            turnDirectionCooldown--;
-        }
+        
         
         moveAround();
         
