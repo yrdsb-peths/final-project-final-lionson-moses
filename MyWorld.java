@@ -21,7 +21,7 @@ public class MyWorld extends World
     private int explosionCooldown = 0 ;
     SimpleTimer animationTimer = new SimpleTimer();
     public boolean isGameover = false ;
-    public Bar bar = new Bar("Player 1", "Health Points", 100, 200);
+    public Bar bar = new Bar("For boss", "Health", 800, 800);
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -32,9 +32,10 @@ public class MyWorld extends World
         Jetfire fire = new Jetfire(false);
         addObject(fire , 220 , 790);
         
-        addObject(bar, 100, 400);
         Jetfire fire2 = new Jetfire(true);
         addObject(fire2 , 182 , 790);
+        
+        addObject(bar, 200, 200);
         
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 40,20);
