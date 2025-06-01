@@ -10,6 +10,7 @@ public class MyWorld extends World
     private DoubleBulletsAbility ability ; 
     public int score = 0 ;
     Label scoreLabel;
+    public int bossNumber = 1;
     
     public int level = 0 ;
     
@@ -21,7 +22,7 @@ public class MyWorld extends World
     private int explosionCooldown = 0 ;
     SimpleTimer animationTimer = new SimpleTimer();
     public boolean isGameover = false ;
-    public Bar bar = new Bar("For boss", "Health", 800, 800);
+    public Bar bar;
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -34,8 +35,6 @@ public class MyWorld extends World
         
         Jetfire fire2 = new Jetfire(true);
         addObject(fire2 , 182 , 790);
-        
-        addObject(bar, 200, 200);
         
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 40,20);
@@ -72,6 +71,7 @@ public class MyWorld extends World
         }
         
         creatBullets();
+        creatBoss();
         
         spawn();
         setElec();
@@ -117,6 +117,16 @@ public class MyWorld extends World
         energys.setValue(elec);
     }
     
+    public void creatBoss()
+    {
+        if(getObjects(FinalBoss.class).isEmpty() && level % 2 == 0 && level != 0 )
+        {
+            FinalBoss boss = new FinalBoss();
+            addObject(boss , 200 , 300);
+            bar = new Bar("Player 1", "Health Points", 70, 70);
+            addObject(bar, 200, 100);
+        }
+    }
     ///this creats bullets, 
     ///they spawn with the same location as the jet class.
     public void creatBullets()
