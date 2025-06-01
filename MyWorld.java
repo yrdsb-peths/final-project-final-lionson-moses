@@ -11,10 +11,11 @@ public class MyWorld extends World
     public int score = 0 ;
     Label scoreLabel;
     public int bossNumber = 1;
-    
+    public FinalBoss boss ;
     public int level = 0 ;
-    
-    
+    public int bossAttackCooldown = 0 ;
+    public int bossAttackShotCount = 0 ;
+    //public int bossAttackPause = 0 ;
     public int energy = 1;
     public int elec = 1;
     Label energys;
@@ -65,14 +66,23 @@ public class MyWorld extends World
         {
             bulletCooldown--;
         }
-        if(energyStore > 0)
+        if(energyStore > 0 )
         {
             energyStore--;
         }
         
+        
         creatBullets();
         creatBoss();
         
+        if (bossAttackCooldown  > 0 ) 
+        {
+            bossAttackCooldown --;
+        }
+        else if (bossAttackCooldown == 0  )
+        {
+            creatBossAttack();
+        }
         spawn();
         setElec();
         
@@ -116,16 +126,29 @@ public class MyWorld extends World
     {
         energys.setValue(elec);
     }
-    
+    public void creatBossAttack()
+    {
+        if( ! getObjects(FinalBoss.class).isEmpty())
+        {
+            int x = boss.getX() ;
+            int y= boss.getY()  ;
+            BossAttack attack = new BossAttack();
+            addObject( attack , x , y ) ;
+            bossAttackCooldown = 30 ;
+            bossAttackShotCount += 1 ;
+        }
+    }
     public void creatBoss()
     {
         if(getObjects(FinalBoss.class).isEmpty() && level % 2 == 0 && level != 0 )
         {
-            FinalBoss boss = new FinalBoss();
+            boss = new FinalBoss();
             addObject(boss , 200 , 300);
-            bar = new Bar("Player 1", "Health Points", 70, 70);
+            bar = new Bar("Boss", "Health Points", 70, 70);
             addObject(bar, 200, 100);
+           
         }
+        
     }
     ///this creats bullets, 
     ///they spawn with the same location as the jet class.
