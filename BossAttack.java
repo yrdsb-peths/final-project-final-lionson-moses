@@ -23,19 +23,17 @@ public class BossAttack extends Actor
     {
         setLocation(getX() , getY() + 3);
         MyWorld world = (MyWorld) getWorld();
-        if(getY() >= 800 )
+        hit();
+        if(getY() >= 850)
         {
             world.removeObject(this);
         }
-        hit();
     }
     public void hit()
     {
         MyWorld world = (MyWorld) getWorld();
         if( isTouching(Jet.class))
         {
-             
-             
              world.gameOver();    
         }
     }

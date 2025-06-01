@@ -31,7 +31,7 @@ public class FinalBoss extends Actor
     {
         moveAround() ;
         animateBoss() ;
-        healthChange() ;
+        healthChange();
     }
     public void moveAround()
     {

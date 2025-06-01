@@ -37,6 +37,11 @@ public class Meteorite extends Actor
         animateMeteorite();
         fly();
         hit();
+        MyWorld world = (MyWorld) getWorld();
+        if(getY() >= 850)
+        {
+            world.removeObject(this);
+        }
     }
     public void fly()
     {

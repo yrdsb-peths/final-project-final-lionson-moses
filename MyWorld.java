@@ -12,13 +12,14 @@ public class MyWorld extends World
     Label scoreLabel;
     public int bossNumber = 1;
     public FinalBoss boss ;
-    public int level = 0 ;
+    public int level = 15 ;
     public int bossAttackCooldown = 0 ;
     public int bossAttackShotCount = 0 ;
     //public int bossAttackPause = 0 ;
     public int energy = 1;
     public int elec = 1;
     Label energys;
+    public boolean bossDefeated = false;
     
     private int explosionCooldown = 0 ;
     SimpleTimer animationTimer = new SimpleTimer();
@@ -92,6 +93,17 @@ public class MyWorld extends World
             Greenfoot.setWorld(gameOverAnimation);
         }
         animateSpace();
+        if (bar != null && bar.getValue() == 0)
+        {
+            if (boss != null)
+            {
+                removeObject(boss);
+                boss = null;
+                bossDefeated = true;
+            }
+            removeObject(bar);
+            bar = null;
+        }
     }
     int backgroundIndex = 0;
     public void animateSpace()
@@ -140,13 +152,13 @@ public class MyWorld extends World
     }
     public void creatBoss()
     {
-        if(getObjects(FinalBoss.class).isEmpty() && level % 8 == 0 && level != 0 )
+        if(getObjects(FinalBoss.class).isEmpty() && bossDefeated == false && level % 8 == 0 && level != 0 )
         {
             boss = new FinalBoss();
             addObject(boss , 200 , 300);
             bar = new Bar("Boss", "Health Points", 70, 70);
             addObject(bar, 200, 100);
-           
+
         }
         
     }
@@ -210,6 +222,7 @@ public class MyWorld extends World
         
         {
             level += 1 ;
+            bossDefeated = false;
             for(int i = 0 ; i < 2 + level ; i++)
             {  
                 creatbug();
