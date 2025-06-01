@@ -13,7 +13,7 @@ public class FinalBoss extends Actor
     {
         for(int i = 0; i< idle.length ; i++)
         {
-            idle[i] = new GreenfootImage("images/stage1/tile00" + i + ".png");
+            idle[i] = new GreenfootImage("images/stage1/tile" + i + ".png");
             idle[i].scale(200 , 200);
         }
         
