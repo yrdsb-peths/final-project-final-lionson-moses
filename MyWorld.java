@@ -140,7 +140,7 @@ public class MyWorld extends World
     }
     public void creatBoss()
     {
-        if(getObjects(FinalBoss.class).isEmpty() && level % 2 == 0 && level != 0 )
+        if(getObjects(FinalBoss.class).isEmpty() && level % 8 == 0 && level != 0 )
         {
             boss = new FinalBoss();
             addObject(boss , 200 , 300);
@@ -161,7 +161,7 @@ public class MyWorld extends World
             int y= jet.getY() -50  ;
             int x2 = jet.getX() + 10 ;
             Bullets bul1 = new Bullets();
-            if( level >= 10 )
+            if( level >= 7 )
             {
                 
                 Bullets bul2 = new Bullets();
