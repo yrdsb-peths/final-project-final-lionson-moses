@@ -146,7 +146,7 @@ public class MyWorld extends World
             int y= boss.getY()  ;
             BossAttack attack = new BossAttack();
             addObject( attack , x , y ) ;
-            bossAttackCooldown = 90 ;
+            bossAttackCooldown = 150 ;
             
         }
     }
@@ -222,10 +222,11 @@ public class MyWorld extends World
         
         {
             level += 1 ;
-            bossDefeated = false;
+            bossDefeated = false;     
             for(int i = 0 ; i < 2 + level ; i++)
-            {  
+            {
                 creatbug();
+            
             }
             createGift();
             if(level >= 6)
