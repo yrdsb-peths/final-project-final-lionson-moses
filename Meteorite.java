@@ -38,6 +38,7 @@ public class Meteorite extends Actor
         fly();
         hit();
         MyWorld world = (MyWorld) getWorld();
+        
     }
     public void fly()
     {

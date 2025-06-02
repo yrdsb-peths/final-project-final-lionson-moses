@@ -84,7 +84,9 @@ public class MyWorld extends World
         {
             creatBossAttack();
         }
+        
         spawn();
+        
         setElec();
         
         if(isGameover)
@@ -218,7 +220,7 @@ public class MyWorld extends World
     ///this spawns bugs
     public void spawn()
     {
-        if (getObjects(Bug.class).isEmpty()) 
+        if (getObjects(Bug.class).isEmpty() && getObjects(FinalBoss.class).isEmpty() ) 
         
         {
             level += 1 ;
