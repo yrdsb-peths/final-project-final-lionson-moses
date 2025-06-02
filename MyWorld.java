@@ -224,10 +224,11 @@ public class MyWorld extends World
         
         {
             level += 1 ;
-            bossDefeated = false;
+            bossDefeated = false;     
             for(int i = 0 ; i < 2 + level ; i++)
-            {  
+            {
                 creatbug();
+            
             }
             createGift();
             if(level >= 6)
