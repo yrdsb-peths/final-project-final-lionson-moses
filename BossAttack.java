@@ -15,8 +15,8 @@ public class BossAttack extends Actor
     public BossAttack()
     {
         
-        GreenfootImage image = new GreenfootImage("bossAttack.png");
-        image.scale(30 , 50);
+        GreenfootImage image = new GreenfootImage("bossLazer.png");
+        image.scale(30 , 80);
         setImage(image);
     }
     public void act()

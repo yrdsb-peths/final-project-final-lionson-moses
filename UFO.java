@@ -6,26 +6,31 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FinalBoss extends Actor
+public class UFO extends Actor
 {
     GreenfootImage[] idle = new GreenfootImage[14];
-    public  FinalBoss()
+    SimpleTimer animationTimer = new SimpleTimer();
+    public UFO()
     {
         for(int i = 0; i< idle.length ; i++)
         {
             idle[i] = new GreenfootImage("images/stage1/tile" + i + ".png");
             idle[i].scale(160 , 160);
         }
-        
+        animationTimer.mark();
         setImage(idle[0]);
     }
     int imageIndex = 0;
     public void animateBoss()
     {
-       
-            setImage(idle[imageIndex]);
-            imageIndex = (imageIndex + 1 )%  idle.length ;
-        
+        if(animationTimer.millisElapsed() < 50)
+        {
+            return;
+        }
+        animationTimer.mark();
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1 )%  idle.length ;
+
     }
     public void act()
     {

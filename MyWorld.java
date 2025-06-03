@@ -6,22 +6,25 @@ public class MyWorld extends World
     GreenfootImage[] space = new GreenfootImage[40];
     private int bulletCooldown = 0 ;
     private int energyStore = 0;
+    private int powerTimer = 0;
     private Jet jet ;
     private DoubleBulletsAbility ability ; 
     public int score = 0 ;
     Label scoreLabel;
     public int bossNumber = 1;
-    public FinalBoss boss ;
+    public UFO boss ;
     public int level = 14 ;
     public int bossAttackCooldown = 0 ;
     public int bossAttackShotCount = 0 ;
     //public int bossAttackPause = 0 ;
-    public int energy = 1;
-    public int elec = 1;
+    public int energy = 11;// real energy
+    public int elec = 11;//for label
     Label energys;
     Label warning = new Label("WARNING!", 20);
     public boolean bossDefeated = false;
+    public boolean upgrade = false;
     
+    private Bar times;
     private int explosionCooldown = 0 ;
     SimpleTimer animationTimer = new SimpleTimer();
     public boolean isGameover = false ;
@@ -74,9 +77,14 @@ public class MyWorld extends World
         {
             energyStore--;
         }
+        if(powerTimer > 0)
+        {
+            powerTimer--;
+        }
         warning();
         creatBullets();
-        creatBoss();
+        creatUFO();
+        powerTime();
         
         if (bossAttackCooldown  > 0 ) 
         {
@@ -144,7 +152,7 @@ public class MyWorld extends World
     }
     public void creatBossAttack()
     {
-        if( ! getObjects(FinalBoss.class).isEmpty())
+        if( ! getObjects(UFO.class).isEmpty())
         {
             int x = boss.getX() ;
             int y= boss.getY()  ;
@@ -154,11 +162,11 @@ public class MyWorld extends World
             
         }
     }
-    public void creatBoss()
+    public void creatUFO()
     {
-        if(getObjects(FinalBoss.class).isEmpty() && bossDefeated == false && level % 8 == 0 && level != 0 )
+        if(getObjects(UFO.class).isEmpty() && bossDefeated == false && level % 8 == 0 && level != 0 )
         {
-            boss = new FinalBoss();
+            boss = new UFO();
             addObject(boss , 200 , 300);
             int health = level* 5;
             bar = new Bar("Boss", "Health Points", health, health);
@@ -179,9 +187,8 @@ public class MyWorld extends World
             int y= jet.getY() -50  ;
             int x2 = jet.getX() + 10 ;
             Bullets bul1 = new Bullets();
-            if( level >= 14 )
+            if(powerTimer > 0)
             {
-                
                 Bullets bul2 = new Bullets();
                 addObject(bul2 , x2 , y );
                 x1 -= 10 ;
@@ -215,12 +222,20 @@ public class MyWorld extends World
             setElec();
             energyStore = 60;
         }
+        if(Greenfoot.isKeyDown("up") && energy > 3 && upgrade == false)
+        {
+            energy -= 3;
+            elec -= 3;
+            setElec();
+            upgrade = true;
+            powerTimer = 5000;
+        }
     }
     
     ///this spawns bugs
     public void spawn()
     {
-        if (getObjects(Bug.class).isEmpty() && getObjects(FinalBoss.class).isEmpty() ) 
+        if (getObjects(Bug.class).isEmpty() && getObjects(UFO.class).isEmpty() ) 
         
         {
             level += 1 ;
@@ -282,6 +297,28 @@ public class MyWorld extends World
             bossIcon.setBoss();
             addObject(bossIcon, 360, 25);
             addObject(warning, 300, 25);
+        }
+    }
+    
+    public void powerTime()
+    {
+        if(powerTimer > 0)
+        {
+            if(times == null)
+            {
+                times = new Bar("Power!","",5000,5000);
+                times.setBarWidth(100);
+                times.setBarHeight(9);
+                times.setBreakPercent(20);
+                addObject(times, 300, 780);
+            }
+            times.subtract(1);
+        }
+        else
+        {
+            removeObject(times);
+            upgrade = false;
+            times = null;
         }
     }
     

@@ -13,6 +13,7 @@ public class Instruction extends World
     private int energyStore = 0;
     public int energy = 100;
     public int elec = 100;
+    public boolean upgrades = false;
     
     public int count = 0 ;
     
@@ -53,7 +54,7 @@ public class Instruction extends World
         }
         creatBullets();
         
-        
+
         instructionPhase1();
         instructionPhase2();
         instructionPhase3();
@@ -137,7 +138,7 @@ public class Instruction extends World
                 addObject(instruction1 , 200 , 400);
                 addObject(instruction2 , 200 , 500);
                 CopyMeteorite tutorialMeteorite = new CopyMeteorite();
-                addObject( tutorialMeteorite , 200 , 100);
+                addObject( tutorialMeteorite , 200 , 20);
                 if( getObjects(CopyMeteorite.class).isEmpty() && count < 1)
                 {
                     count = 1 ;
@@ -158,10 +159,12 @@ public class Instruction extends World
         {
             if(Greenfoot.isKeyDown("Tab"))
             {
+                InstructionLabel instructionup = new InstructionLabel("press up to upgrade your jet!", 30);
                 InstructionLabel instruction = new InstructionLabel("Or press down to destroy it!", 30);
                 addObject(instruction , 200 , 400);
+                addObject(instructionup , 200 , 300);
                 CopyMeteorite tutorialMeteorite = new CopyMeteorite();
-                addObject( tutorialMeteorite , 200 , 100);
+                addObject( tutorialMeteorite , 200 , 20);
             }
             if(getObjects(CopyMeteorite.class).isEmpty() && count < 1)
             {
@@ -188,13 +191,18 @@ public class Instruction extends World
             
             CopyBullets bul = new CopyBullets();
             Greenfoot.playSound("fire.mp3");
-            int x = jet.getX() ;
+            int x1 = jet.getX() ;
             int y = jet.getY() - 30;
-            
-            addObject(bul , x , y );
+            int x2 = jet.getX();
             
             bulletCooldown = 20 ;
-            
+            if(upgrades == true)
+            {
+                CopyBullets bul2 = new CopyBullets();
+                addObject(bul2 , x2 + 10 , y );
+                x1 -= 10 ;
+            }
+            addObject(bul , x1 , y );
         }
         
         
@@ -210,6 +218,11 @@ public class Instruction extends World
             energyStore = 60;
             
             
+        }
+        
+        if(Greenfoot.isKeyDown("up") && upgrades == false)
+        {
+            upgrades = true;
         }
     }
 }
