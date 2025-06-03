@@ -9,4 +9,9 @@ public class Icon extends Actor
     {
         setImage("images/energy.png");
     }
+    
+    public void setBoss()
+    {
+        setImage("images/stage1/tile0.png");
+    }
 }

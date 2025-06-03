@@ -14,7 +14,7 @@ public class FinalBoss extends Actor
         for(int i = 0; i< idle.length ; i++)
         {
             idle[i] = new GreenfootImage("images/stage1/tile" + i + ".png");
-            idle[i].scale(200 , 200);
+            idle[i].scale(160 , 160);
         }
         
         setImage(idle[0]);
@@ -67,7 +67,8 @@ public class FinalBoss extends Actor
         }
         else if (isTouching(Skill.class))
         {
-            world.subtractBar(5);
+            int levels = world.getLevel();
+            world.subtractBar(levels * 2);
             removeTouching(Skill.class);
         }
     }

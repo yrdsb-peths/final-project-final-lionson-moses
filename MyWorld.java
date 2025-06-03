@@ -12,19 +12,21 @@ public class MyWorld extends World
     Label scoreLabel;
     public int bossNumber = 1;
     public FinalBoss boss ;
-    public int level = 15 ;
+    public int level = 14 ;
     public int bossAttackCooldown = 0 ;
     public int bossAttackShotCount = 0 ;
     //public int bossAttackPause = 0 ;
     public int energy = 1;
     public int elec = 1;
     Label energys;
+    Label warning = new Label("WARNING!", 20);
     public boolean bossDefeated = false;
     
     private int explosionCooldown = 0 ;
     SimpleTimer animationTimer = new SimpleTimer();
     public boolean isGameover = false ;
     public Bar bar;
+    Icon bossIcon = new Icon();
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -42,6 +44,7 @@ public class MyWorld extends World
         addObject(scoreLabel , 40,20);
         
         Icon energyIcon = new Icon();
+        
         energys = new Label(0, 40);
         addObject(energyIcon, 60, 780);
         addObject(energys, 30, 780);
@@ -71,8 +74,7 @@ public class MyWorld extends World
         {
             energyStore--;
         }
-        
-        
+        warning();
         creatBullets();
         creatBoss();
         
@@ -158,9 +160,11 @@ public class MyWorld extends World
         {
             boss = new FinalBoss();
             addObject(boss , 200 , 300);
-            bar = new Bar("Boss", "Health Points", 70, 70);
+            int health = level* 5;
+            bar = new Bar("Boss", "Health Points", health, health);
             addObject(bar, 200, 100);
-
+            removeObject(bossIcon);
+            removeObject(warning);
         }
         
     }
@@ -175,16 +179,12 @@ public class MyWorld extends World
             int y= jet.getY() -50  ;
             int x2 = jet.getX() + 10 ;
             Bullets bul1 = new Bullets();
-            if( level >= 7 )
+            if( level >= 14 )
             {
                 
                 Bullets bul2 = new Bullets();
                 addObject(bul2 , x2 , y );
                 x1 -= 10 ;
-            }
-            else
-            {
-                ;
             }
             
             Greenfoot.playSound("fire.mp3");
@@ -224,12 +224,15 @@ public class MyWorld extends World
         
         {
             level += 1 ;
-            bossDefeated = false;     
-            for(int i = 0 ; i < 2 + level ; i++)
+            bossDefeated = false;
+            if(level % 8 != 0)
             {
-                creatbug();
-            
+                for(int i = 0 ; i < 2 + level ; i++)
+                {
+                    creatbug();
+                }
             }
+            
             createGift();
             if(level >= 6)
             {
@@ -270,5 +273,20 @@ public class MyWorld extends World
     public void subtractBar(int numbers)
     {
         bar.subtract(numbers);
+    }
+    
+    public void warning()
+    {
+        if(level % 8 == 7)
+        {
+            bossIcon.setBoss();
+            addObject(bossIcon, 360, 25);
+            addObject(warning, 300, 25);
+        }
+    }
+    
+    public int getLevel()
+    {
+        return level;
     }
 }
