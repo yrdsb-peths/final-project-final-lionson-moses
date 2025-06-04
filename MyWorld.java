@@ -1,35 +1,34 @@
 import greenfoot.*;
-
+/**
+ * Our World
+ * By moses and Lionson
+ * v2.0
+ */
 public class MyWorld extends World 
 {
-    //speed
     GreenfootImage[] space = new GreenfootImage[40];
-    private int bulletCooldown = 0 ;
-    private int energyStore = 0;
-    private int powerTimer = 0;
+    private int bulletCooldown = 0 ;//bullet cooldown
+    private int energyStore = 0;//energy cooldown(skill)
+    private int powerTimer = 0;//power time counting
     private Jet jet ;
-    private DoubleBulletsAbility ability ; 
-    public int score = 0 ;
+    public int score = 0 ;//score for final and label
     Label scoreLabel;
-    public int bossNumber = 1;
     public UFO boss ;
     public int level = 14 ;
-    public int bossAttackCooldown = 0 ;
-    public int bossAttackShotCount = 0 ;
-    //public int bossAttackPause = 0 ;
+    public int bossAttackCooldown = 0 ;//UFO's lazer cooldown
     public int energy = 11;// real energy
     public int elec = 11;//for label
     Label energys;
     Label warning = new Label("WARNING!", 20);
-    public boolean bossDefeated = false;
-    public boolean upgrade = false;
+    public boolean bossDefeated = false;//when is true, will not spawn at this level
+    public boolean upgrade = false;//power time on or not
     
-    private Bar times;
-    private int explosionCooldown = 0 ;
+    private Bar times;//bar of power time
     SimpleTimer animationTimer = new SimpleTimer();
-    public boolean isGameover = false ;
-    public Bar bar;
-    Icon bossIcon = new Icon();
+    SimpleTimer frameTimer = new SimpleTimer();
+    public boolean isGameover = false ;//jet is dead or not
+    public Bar bar;//boss's health bar
+    Icon bossIcon = new Icon();//icon for warning boss coming
     public MyWorld() 
     {
         super(400, 800, 1, false);
@@ -46,7 +45,7 @@ public class MyWorld extends World
         scoreLabel = new Label(0,50);
         addObject(scoreLabel , 40,20);
         
-        Icon energyIcon = new Icon();
+        Icon energyIcon = new Icon();//energy icon at down left
         
         energys = new Label(0, 40);
         addObject(energyIcon, 60, 780);
@@ -58,17 +57,10 @@ public class MyWorld extends World
         }
         setBackground(space[0]);
         animationTimer.mark();
-        
-        
-        /*
-        Label levelLabel = new Label(0,50);
-        addObject(levelLabel ,100 , 20);
-        */
-        /// there's some bugs happening here, 
-        ///cant run the levelIncrease method
     }    
     public void act()
     {
+        //minus one in one frame.
         if (bulletCooldown  > 0 ) 
         {
             bulletCooldown--;
@@ -77,7 +69,7 @@ public class MyWorld extends World
         {
             energyStore--;
         }
-        if(powerTimer > 0)
+        if(frameTimer.millisElapsed() >= 1000)
         {
             powerTimer--;
         }
@@ -98,13 +90,14 @@ public class MyWorld extends World
         spawn();
         
         setElec();
-        
+        //if jet dead, end game 
         if(isGameover)
         {
             Final gameOverAnimation = new Final(score);
             Greenfoot.setWorld(gameOverAnimation);
         }
         animateSpace();
+        //health bar for boss
         if (bar != null && bar.getValue() == 0)
         {
             if (boss != null)
@@ -132,11 +125,6 @@ public class MyWorld extends World
     ///this is label Gameover,
     public void gameOver()
     {
-        /*
-        Label gameOverLabel = new Label("Game Over", 90);
-        addObject(gameOverLabel, 200, 400);
-        Greenfoot.stop() ;
-        */
         isGameover = true ;
     }
     ///this increases the score every time one bug is killed
@@ -150,6 +138,7 @@ public class MyWorld extends World
     {
         energys.setValue(elec);
     }
+    //spawn boss attack
     public void creatBossAttack()
     {
         if( ! getObjects(UFO.class).isEmpty())
@@ -158,10 +147,11 @@ public class MyWorld extends World
             int y= boss.getY()  ;
             BossAttack attack = new BossAttack();
             addObject( attack , x , y ) ;
-            bossAttackCooldown = 150 ;
+            bossAttackCooldown = 150;
             
         }
     }
+    //for every 8 stage, spwan boss
     public void creatUFO()
     {
         if(getObjects(UFO.class).isEmpty() && bossDefeated == false && level % 8 == 0 && level != 0 )
@@ -187,6 +177,7 @@ public class MyWorld extends World
             int y= jet.getY() -50  ;
             int x2 = jet.getX() + 10 ;
             Bullets bul1 = new Bullets();
+            //when is powertime, shoot two line of bullet.
             if(powerTimer > 0)
             {
                 Bullets bul2 = new Bullets();
@@ -196,9 +187,9 @@ public class MyWorld extends World
             
             Greenfoot.playSound("fire.mp3");
             
-            
+            //increase rate of fire by level
             addObject(bul1 , x1 , y );
-                        
+            //level 12 is the maximum rate
             if(level < 12)
             {
                 bulletCooldown = 29 - 2*level ;
@@ -222,13 +213,15 @@ public class MyWorld extends World
             setElec();
             energyStore = 60;
         }
+        //spend 3 energy to start power time
         if(Greenfoot.isKeyDown("up") && energy > 3 && upgrade == false)
         {
             energy -= 3;
             elec -= 3;
             setElec();
             upgrade = true;
-            powerTimer = 5000;
+            powerTimer = 20;
+            frameTimer.mark();
         }
     }
     
@@ -240,20 +233,19 @@ public class MyWorld extends World
         {
             level += 1 ;
             bossDefeated = false;
-            if(level % 8 != 0)
+            if(level % 8 != 0)//when is level 8, spawn boss
             {
                 for(int i = 0 ; i < 2 + level ; i++)
                 {
                     creatbug();
                 }
             }
-            
             createGift();
+            //spawn meteorite after level 6
             if(level >= 6)
             {
                 createMeteorite();
             }
-            
         }
     }
     /// the game became super laggy if I don't creat 
@@ -262,7 +254,6 @@ public class MyWorld extends World
     {
         
         Bug bug = new Bug();
-        
         int x = Greenfoot.getRandomNumber(400);
         int y = 100 + Greenfoot.getRandomNumber(50) ;
         addObject(bug , x, y );
@@ -284,35 +275,39 @@ public class MyWorld extends World
         addObject(mete, x, -20);
         Greenfoot.playSound("boom.mp3");
     }
-    
+    //subtrack boss health bar.
     public void subtractBar(int numbers)
     {
         bar.subtract(numbers);
     }
-    
+    //before UFO coming, add a warning
     public void warning()
     {
-        if(level % 8 == 7)
+       if(level % 8 == 7)
         {
             bossIcon.setBoss();
             addObject(bossIcon, 360, 25);
             addObject(warning, 300, 25);
         }
     }
-    
+    //power timer
     public void powerTime()
     {
         if(powerTimer > 0)
         {
             if(times == null)
             {
-                times = new Bar("Power!","",5000,5000);
+                times = new Bar("Power!","",20,20);
                 times.setBarWidth(100);
                 times.setBarHeight(9);
                 times.setBreakPercent(20);
                 addObject(times, 300, 780);
             }
-            times.subtract(1);
+            if(frameTimer.millisElapsed() >= 1000)
+            {
+                times.subtract(1);
+                frameTimer.mark();
+            }
         }
         else
         {
@@ -321,7 +316,7 @@ public class MyWorld extends World
             times = null;
         }
     }
-    
+    //get method
     public int getLevel()
     {
         return level;

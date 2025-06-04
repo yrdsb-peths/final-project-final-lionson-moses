@@ -11,6 +11,7 @@ public class Meteorite extends Actor
     public int meteoriteHealth = 20 ;
     GreenfootImage[] idle = new GreenfootImage[4];
     SimpleTimer animationTimer = new SimpleTimer();
+    //animation stuff
     public Meteorite()
     {
         for(int i = 0; i< idle.length ; i++)

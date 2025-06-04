@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartScreen extends World
 {
-    /**
-     * Constructor for objects of class StartScreen.
-     * 
-     */
+
     GreenfootSound music = new GreenfootSound("startingpageloopmusic.mp3");
     private boolean musicStarted;
     public StartScreen()
@@ -46,7 +43,7 @@ public class StartScreen extends World
         Jetfire startScreenFireleft = new Jetfire(true);
         addObject(startScreenFire , 317 , 420);
         addObject(startScreenFireleft , 283 , 420);
-        
+        //background music
         if ( ! musicStarted)
         {
             music.playLoop();

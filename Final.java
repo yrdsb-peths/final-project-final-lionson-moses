@@ -1,21 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Final here.
+ * ending world
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson 
+ * @v1.0
  */
 public class Final extends World
 {
-
-    /**
-     * Constructor for objects of class Final.
-     * 
-     */
+    //to get score from MyWorld
     public Final(int score)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // 400* 800.
         super(400, 800, 1); 
         setBackground("images/space.jpg");
         
@@ -26,7 +22,7 @@ public class Final extends World
         GameOverFixedJet gameOverJet = new GameOverFixedJet();
         gameOverJet.resizeJet(100 , 200);
         addObject(gameOverJet , 200 , 400);
-        
+        //count of bugs
         Label mark = new Label("You defeat:" + score + "bugs!", 40);
         addObject(mark, 200, 770);
         for(int i = 0 ; i < 10 ; i++)
@@ -36,6 +32,7 @@ public class Final extends World
             int y = 300 + Greenfoot.getRandomNumber(300);
             addObject(explo , x , y);
         }
+        //sound
         Greenfoot.playSound("explosion.mp3");
         
     }

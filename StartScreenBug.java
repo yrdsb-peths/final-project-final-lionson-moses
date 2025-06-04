@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartScreenBug extends Actor
 {
-    
     GreenfootImage[] idle = new GreenfootImage[10];
     public  StartScreenBug()
     {
@@ -31,15 +30,10 @@ public class StartScreenBug extends Actor
     public void act()
     {
         animateStartScreenBugs();
-        
-        
-        
         moveAround();
-        
     }
     public void moveAround()
     {
-        
         move(4);
         if(Greenfoot.getRandomNumber(100)<10)
         {

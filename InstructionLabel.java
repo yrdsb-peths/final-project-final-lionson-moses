@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class InstructionLabel here.
+ * Label in Instruction
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionon 
+ * @v1.0
  */
 public class InstructionLabel extends Actor
 {

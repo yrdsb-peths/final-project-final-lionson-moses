@@ -1,17 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class CopySkill here.
+ * CopySkill.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson 
+ * @v1.0
  */
 public class CopySkill extends Actor
 {
-    /**
-     * Act - do whatever the CopySkill wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    //same as origin skill
     public CopySkill()
     {
         setImage("bulletImage.png");

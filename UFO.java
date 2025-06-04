@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class FinalBoss here.
+ * UFO, appear every 8 level.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson
+ * @v1.0
  */
 public class UFO extends Actor
 {
@@ -38,6 +38,7 @@ public class UFO extends Actor
         animateBoss() ;
         healthChange();
     }
+    //random moving
     public void moveAround()
     {
         
@@ -62,6 +63,7 @@ public class UFO extends Actor
             turn(180);
         }
     }
+    //subtract health bar when being shot.
     public void healthChange()
     {
         MyWorld world = (MyWorld) getWorld();

@@ -1,17 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class CopyBullets here.
+ * Bullet for instruction
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson
+ * @v1.0
  */
 public class CopyBullets extends Actor
 {
-    /**
-     * Act - do whatever the CopyBullets wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public CopyBullets()
     {
         GreenfootImage image = new GreenfootImage("bulletImage.png");

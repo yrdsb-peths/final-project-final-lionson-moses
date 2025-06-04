@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Instruction here.
+ * How to play the game, press "tab" to start
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Moses and Lionson
+ * @v1.0
  */
 public class Instruction extends World
 {
@@ -19,14 +19,8 @@ public class Instruction extends World
     
     public boolean isPhase1done = false;
     boolean[] isPhaseDone ={false , false , false , false};
-    
-    /**
-     * Constructor for objects of class Instruction.
-     * 
-     */
     public Instruction()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(400, 800, 1 , false); 
         setBackground("images/space.jpg");
         
@@ -43,7 +37,6 @@ public class Instruction extends World
     }
     public void act()
     {
-        
         if (bulletCooldown  > 0 ) 
         {
             bulletCooldown--;
@@ -53,8 +46,7 @@ public class Instruction extends World
             energyStore--;
         }
         creatBullets();
-        
-
+        //four instrction line appear
         instructionPhase1();
         instructionPhase2();
         instructionPhase3();
@@ -169,13 +161,11 @@ public class Instruction extends World
             if(getObjects(CopyMeteorite.class).isEmpty() && count < 1)
             {
                 count = 1 ;
-                
             }
             else
             {
                 isPhaseDone[3] = true ;
             }
-           
             count = 0 ;
         }
         
@@ -188,7 +178,6 @@ public class Instruction extends World
         if (Greenfoot.isKeyDown("space") && bulletCooldown == 0)
         
         {
-            
             CopyBullets bul = new CopyBullets();
             Greenfoot.playSound("fire.mp3");
             int x1 = jet.getX() ;

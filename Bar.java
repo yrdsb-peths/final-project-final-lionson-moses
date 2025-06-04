@@ -1,6 +1,7 @@
 // AUTHOR: danpost
 // Version: 2
 // Last modified: February, 8, 2012
+// Lionson: Upload from greenfoot web. https://www.greenfoot.org/scenarios/4114
 
 import greenfoot.*;
 
