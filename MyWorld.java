@@ -14,10 +14,10 @@ public class MyWorld extends World
     public int score = 0 ;//score for final and label
     Label scoreLabel;
     public UFO boss ;
-    public int level = 14 ;
+    public int level = 0;
     public int bossAttackCooldown = 0 ;//UFO's lazer cooldown
-    public int energy = 11;// real energy
-    public int elec = 11;//for label
+    public int energy = 1;// real energy
+    public int elec = 1;//for label
     Label energys;
     Label warning = new Label("WARNING!", 20);
     public boolean bossDefeated = false;//when is true, will not spawn at this level
@@ -214,7 +214,7 @@ public class MyWorld extends World
             energyStore = 60;
         }
         //spend 3 energy to start power time
-        if(Greenfoot.isKeyDown("up") && energy > 3 && upgrade == false)
+        if(Greenfoot.isKeyDown("up") && energy >= 3 && upgrade == false)
         {
             energy -= 3;
             elec -= 3;
