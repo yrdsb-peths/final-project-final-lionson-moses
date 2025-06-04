@@ -37,4 +37,3 @@ Boss
 Cheat:
 You can change the fire rate of the bullets, power boost time, and infinite large bullets. 
 You can also change the health of Boss and meteorite to make th egame easier.
-
