@@ -12,7 +12,7 @@ public class BossAttack extends Actor
     {
         
         GreenfootImage image = new GreenfootImage("bossLazer.png");
-        image.scale(30 , 80);
+        image.scale(28 , 80);
         setImage(image);
     }
     //bullet

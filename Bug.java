@@ -41,7 +41,7 @@ public class Bug extends Actor
         if(getY() >= world.getHeight() || isTouching(Jet.class) )
         {
             
-                
+            world.gameOver();
             
         }
         hit();

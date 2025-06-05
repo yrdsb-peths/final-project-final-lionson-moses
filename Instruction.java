@@ -61,8 +61,10 @@ public class Instruction extends World
     }
     public void startGame()
     {
-        InstructionLabel instruction = new InstructionLabel("Now press space to start the game!", 30);
+        InstructionLabel instruction = new InstructionLabel("Now press space to start the game!", 28);
+        InstructionLabel instruction2 = new InstructionLabel("Don't let the bugs touch your jet or escape!", 23);
         addObject(instruction , 200 , 500);
+        addObject(instruction2 , 200, 370);
         if(Greenfoot.isKeyDown("space"))
         {
             MyWorld gameWorld = new MyWorld();
