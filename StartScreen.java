@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartScreen extends World
 {
-    /**
-     * Constructor for objects of class StartScreen.
-     * 
-     */
+
     GreenfootSound music = new GreenfootSound("startingpageloopmusic.mp3");
     private boolean musicStarted;
     public StartScreen()
@@ -24,18 +21,13 @@ public class StartScreen extends World
         addObject(startLabel, 300, 220);
         
         
-        Label instruction1 = new Label("press space to start the game and SHOOT!", 20);
-        Label instruction2 = new Label("press Left and Right to MOVEAROUND!", 20);
-        Label instruction3 = new Label("Eat the LIGHTING and press Down to ACTIVATE SECRET BULLET !", 20);
-        Label instruction4 = new Label("DONT let the bug touch you or get over you!", 20);
-        Label instruction5 = new Label("Eat the Nighting to gain HUGE BULLET SKILL! You can press 'Down' to activate it!" , 20);
-        Label instruction6 = new Label("Careful with the Meteorite! you can destrpy it only using skill!" , 20);
+        
+        Label instruction1 = new Label("press space to start the game and SHOOT!", 35);
+        Label instruction2 = new Label("press Tab to start tutorial!", 35);
+        
         addObject(instruction1 , 300 , 30);
         addObject(instruction2 , 300 , 60);
-        addObject(instruction3 , 300 , 90);
-        addObject(instruction4 , 300 , 120);
-        addObject(instruction5 , 300 , 150);
-        addObject(instruction6 , 300 , 180);
+        
         
         
         Jet demonJet = new Jet();
@@ -51,7 +43,7 @@ public class StartScreen extends World
         Jetfire startScreenFireleft = new Jetfire(true);
         addObject(startScreenFire , 317 , 420);
         addObject(startScreenFireleft , 283 , 420);
-        
+        //background music
         if ( ! musicStarted)
         {
             music.playLoop();
@@ -63,7 +55,14 @@ public class StartScreen extends World
     public void act()
     {
 
-        if(Greenfoot.isKeyDown("space"))
+        if(Greenfoot.isKeyDown("tab"))
+        {
+            Instruction instructionWorld = new Instruction();
+            Greenfoot.setWorld(instructionWorld);
+            music.pause();
+            Greenfoot.playSound("pressToStart.mp3");
+        }
+        else if(Greenfoot.isKeyDown("space"))
         {
             MyWorld startGame = new MyWorld();
             Greenfoot.setWorld(startGame);

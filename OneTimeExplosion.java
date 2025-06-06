@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class OneTimeExplosion extends Actor
 {
-    /**
-     * Act - do whatever the OneTimeExplosion wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     GreenfootImage[] idle = new GreenfootImage[9];
     public int count = 0 ;
     
@@ -27,10 +24,6 @@ public class OneTimeExplosion extends Actor
         setImage(idle[0]);
     }
     int imageIndex = 0;
-    
-    
-    
-    
     public void act()
     {
         

@@ -10,7 +10,9 @@ public class Jet extends Actor
 {
     public  Jet()
     {
-        setImage("jetremove.png");
+        GreenfootImage image = new GreenfootImage("jetremove.png");
+        image.scale(97 , 150);
+        setImage(image);
     }
     public void act()
     {

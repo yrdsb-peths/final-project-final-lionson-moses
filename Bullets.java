@@ -19,7 +19,7 @@ public class Bullets extends Actor
     public void act()
     {
         setLocation(getX() , getY() - 7);
-        MyWorld world = (MyWorld) getWorld();
+        World world = getWorld();
         if(getY() <= 0 )
         {
             world.removeObject(this);
