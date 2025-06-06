@@ -148,6 +148,7 @@ public class MyWorld extends World
             BossAttack attack = new BossAttack();
             addObject( attack , x , y ) ;
             bossAttackCooldown = 150;
+            Greenfoot.playSound("UFOLazer.wav");
             
         }
     }
@@ -185,7 +186,7 @@ public class MyWorld extends World
                 x1 -= 10 ;
             }
             
-            Greenfoot.playSound("fire.mp3");
+            Greenfoot.playSound("fires.mp3");
             
             //increase rate of fire by level
             addObject(bul1 , x1 , y );
@@ -222,6 +223,7 @@ public class MyWorld extends World
             upgrade = true;
             powerTimer = 20;
             frameTimer.mark();
+            Greenfoot.playSound("PowerTime.mp3");
         }
     }
     

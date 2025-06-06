@@ -181,7 +181,7 @@ public class Instruction extends World
         
         {
             CopyBullets bul = new CopyBullets();
-            Greenfoot.playSound("fire.mp3");
+            Greenfoot.playSound("fires.mp3");
             int x1 = jet.getX() ;
             int y = jet.getY() - 30;
             int x2 = jet.getX();
