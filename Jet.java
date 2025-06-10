@@ -39,5 +39,4 @@ public class Jet extends Actor
              }
          }
     }
-    
 }

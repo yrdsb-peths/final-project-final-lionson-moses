@@ -147,7 +147,14 @@ public class MyWorld extends World
             int y= boss.getY()  ;
             BossAttack attack = new BossAttack();
             addObject( attack , x , y ) ;
-            bossAttackCooldown = 150;
+            if(level > 50)
+            {
+                bossAttackCooldown = 80;
+            }
+            else
+            {
+                bossAttackCooldown = 180 - level;
+            }
             Greenfoot.playSound("UFOLazer.wav");
             
         }
@@ -161,7 +168,7 @@ public class MyWorld extends World
             addObject(boss , 200 , 300);
             int health = level* 5;
             bar = new Bar("Boss", "Health Points", health, health);
-            addObject(bar, 200, 100);
+            addObject(bar, 185, 100);
             removeObject(bossIcon);
             removeObject(warning);
         }
